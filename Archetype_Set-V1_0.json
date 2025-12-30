@@ -1,0 +1,155 @@
+{
+  "version": "v1.0.0-A",
+  "schema": {
+    "id_format": "ARCH__{UPPER_SNAKE}",
+    "description": "Archetype definitions used to summarize/interpret a 12-trait profile. Intended to be loaded separately from roles and questions."
+  },
+  "trait_labels": {
+    "A1": "Leadership",
+    "A2": "Aggression",
+    "A3": "Autonomy",
+    "B1": "Risk Tolerance",
+    "B2": "Combat Exposure",
+    "B3": "Lethality Comfort",
+    "C1": "Empathy",
+    "C2": "Persuasion",
+    "C3": "Community Orientation",
+    "D1": "Technical Competence",
+    "D2": "Planning & Logistics",
+    "D3": "Adaptability"
+  },
+  "archetypes": [
+    {
+      "id": "ARCH__COMMUNITY_ANCHOR",
+      "name": "Community Anchor",
+      "summary": "Stabilizes people and places. Builds continuity, safety, and trust under stress.",
+      "tone": "de_escalatory",
+      "weights": { "C3": 1.4, "C1": 1.2, "D2": 1.0, "A1": 0.8, "B3": -0.6, "A2": -0.4 },
+      "thresholds": { "C3_min": 60, "C1_min": 55 },
+      "tags": ["community_building","caretaking","stability","morale","noncoercive_order"],
+      "strengths": ["Sustains morale and cohesion", "Creates routines that survive chaos", "De-escalates conflict before it becomes violence"],
+      "risks": ["May delay hard decisions", "Can overextend for others", "May underestimate predatory actors"],
+      "best_fit_roles_hint": ["settlement_leadership","medical_support","civilian_infrastructure","aid_networks"]
+    },
+    {
+      "id": "ARCH__FIELD_OPERATOR",
+      "name": "Field Operator",
+      "summary": "Acts decisively in uncertain environments. Comfortable with movement, risk, and rapid choices.",
+      "tone": "pragmatic",
+      "weights": { "D3": 1.4, "B1": 1.2, "A3": 1.0, "B2": 0.8, "D2": 0.6, "C3": -0.2 },
+      "thresholds": { "D3_min": 60, "B1_min": 55 },
+      "tags": ["mobility","improvisation","initiative","fieldcraft","pressure_tolerance"],
+      "strengths": ["Finds paths through chaos", "Adapts faster than opponents", "Functions well with incomplete info"],
+      "risks": ["Can drift from long-term plans", "May normalize danger", "Can appear inconsistent to structured groups"],
+      "best_fit_roles_hint": ["courier","scout","runner","field_agent","recon"]
+    },
+    {
+      "id": "ARCH__TACTICAL_ENFORCER",
+      "name": "Tactical Enforcer",
+      "summary": "Uses force as a tool—direct, disciplined, and oriented toward control of threats.",
+      "tone": "forceful",
+      "weights": { "B2": 1.4, "A2": 1.2, "B3": 1.0, "A1": 0.8, "D2": 0.6, "C1": -0.6 },
+      "thresholds": { "B2_min": 60, "A2_min": 55 },
+      "tags": ["combat_role","threat_management","deterrence","direct_action","hard_choices"],
+      "strengths": ["Stops violence quickly", "Creates deterrence and order under threat", "Performs under fire"],
+      "risks": ["Can escalate situations unnecessarily", "May reduce empathy under stress", "Risk of moral injury/overreach"],
+      "best_fit_roles_hint": ["guard","heavy","shock_role","security","raid_response"]
+    },
+    {
+      "id": "ARCH__COORDINATOR_COMMAND",
+      "name": "Coordinator / Command",
+      "summary": "Turns chaos into structure. Leads through planning, delegation, and clear doctrine.",
+      "tone": "commanding",
+      "weights": { "A1": 1.4, "D2": 1.4, "C3": 0.8, "D3": 0.6, "A3": -0.2, "B1": 0.2 },
+      "thresholds": { "A1_min": 60, "D2_min": 60 },
+      "tags": ["leadership","planning","systems_thinking","doctrine","coordination"],
+      "strengths": ["Builds repeatable success", "Allocates resources effectively", "Improves team performance over time"],
+      "risks": ["Can become rigid", "May over-control autonomy", "Can struggle in rapidly shifting unknowns"],
+      "best_fit_roles_hint": ["overseer","quartermaster","unit_leader","operations","department_head"]
+    },
+    {
+      "id": "ARCH__TECHNICAL_SOLVER",
+      "name": "Technical Solver",
+      "summary": "Fixes what others can’t. Builds capability through tools, systems, and applied expertise.",
+      "tone": "technical",
+      "weights": { "D1": 1.6, "D2": 1.0, "D3": 0.6, "B1": 0.4, "A2": -0.2, "B3": -0.2 },
+      "thresholds": { "D1_min": 60 },
+      "tags": ["engineering","repair","science","optimization","infrastructure"],
+      "strengths": ["Creates long-term advantage", "Reduces risk through systems", "Solves bottlenecks others accept as fate"],
+      "risks": ["Can underweight human factors", "May overfocus on the fix vs. the context", "Resource-hungry solutions"],
+      "best_fit_roles_hint": ["engineer","mechanic","scientist","technician","robotics"]
+    },
+    {
+      "id": "ARCH__DIPLOMATIC_INFLUENCER",
+      "name": "Diplomatic Influencer",
+      "summary": "Wins without fighting. Builds alliances, persuades rivals, and manages perception.",
+      "tone": "de_escalatory",
+      "weights": { "C2": 1.6, "C1": 1.0, "C3": 0.8, "A1": 0.6, "A2": -0.6, "B3": -0.4 },
+      "thresholds": { "C2_min": 60 },
+      "tags": ["negotiation","soft_power","alliances","reputation","mediation"],
+      "strengths": ["Prevents conflicts", "Creates leverage through relationships", "Stabilizes multi-group environments"],
+      "risks": ["Can be exploited by bad-faith actors", "May delay decisive action", "Reputation damage if seen as manipulative"],
+      "best_fit_roles_hint": ["representative","merchant","liaison","broker","public_face"]
+    },
+    {
+      "id": "ARCH__COVERT_OPERATOR",
+      "name": "Covert Operator",
+      "summary": "Works in shadows: compartmentalization, stealth, and information advantage.",
+      "tone": "covert",
+      "weights": { "A3": 1.6, "D3": 1.0, "B1": 0.8, "C2": 0.6, "A1": -0.2, "C3": -0.2 },
+      "thresholds": { "A3_min": 60 },
+      "tags": ["stealth","compartmentalization","surveillance","tradecraft","low_visibility"],
+      "strengths": ["Avoids fights others can’t survive", "Finds truths others miss", "Creates asymmetric advantage"],
+      "risks": ["Can erode trust if discovered", "Isolation and paranoia risk", "May prioritize secrecy over community"],
+      "best_fit_roles_hint": ["field_agent","runner","informant","infiltration","counterintelligence"]
+    },
+    {
+      "id": "ARCH__MORAL_MEDIC",
+      "name": "Moral Medic",
+      "summary": "Treats the wounded and the broken—physical and psychological. Strong ethical core under pressure.",
+      "tone": "de_escalatory",
+      "weights": { "C1": 1.6, "D1": 0.8, "C3": 0.8, "D3": 0.6, "B3": -0.8, "A2": -0.4 },
+      "thresholds": { "C1_min": 60 },
+      "tags": ["medicine","triage","care","stability","ethics"],
+      "strengths": ["Raises survival rates", "Reduces panic and secondary harm", "Builds trust across factions"],
+      "risks": ["High burnout", "Can be targeted/exploited", "May carry disproportionate grief"],
+      "best_fit_roles_hint": ["doctor","medic","paramedic","nurse","psychologist"]
+    },
+    {
+      "id": "ARCH__RUTHLESS_STRATEGIST",
+      "name": "Ruthless Strategist",
+      "summary": "Optimizes outcomes with low sentimentality. Comfortable with coercion and calculated harm.",
+      "tone": "forceful",
+      "weights": { "A1": 1.0, "D2": 1.2, "B3": 1.2, "A2": 1.0, "C1": -1.0, "C3": -0.4 },
+      "thresholds": { "B3_min": 60, "D2_min": 55 },
+      "tags": ["hard_control","utilitarian","coercion","strategic_pressure","ends_over_means"],
+      "strengths": ["Wins asymmetrical conflicts", "Maintains order in hostile environments", "Makes hard calls quickly"],
+      "risks": ["Creates enemies and blowback", "Erodes legitimacy", "High moral injury potential"],
+      "best_fit_roles_hint": ["merc_command","authoritarian_admin","enforcer_leadership","criminal_management"]
+    },
+    {
+      "id": "ARCH__SURVIVOR_PRACTICAL",
+      "name": "Survivor (Practical)",
+      "summary": "Gets through today. Values workable choices, lower drama, and repeatable survival behaviors.",
+      "tone": "pragmatic",
+      "weights": { "D3": 1.0, "D2": 1.0, "B1": 0.8, "C3": 0.6, "A1": 0.2, "A2": -0.2 },
+      "thresholds": { "B1_min": 45 },
+      "tags": ["practicality","resourcefulness","risk_management","daily_survival","consistency"],
+      "strengths": ["Maintains steady survival rhythms", "Avoids catastrophic risks", "Adapts without overcommitting"],
+      "risks": ["Can underreach long-term potential", "May accept bad systems as normal", "Lower influence in high-politics spaces"],
+      "best_fit_roles_hint": ["settler","trader","caravaneer","scavenger","worker"]
+    },
+    {
+      "id": "ARCH__PUBLIC_FACE_PERFORMER",
+      "name": "Public Face / Performer",
+      "summary": "Leads through visibility, morale, and social gravity. Turns attention into influence.",
+      "tone": "commanding",
+      "weights": { "C2": 1.2, "C3": 1.0, "A1": 0.8, "D3": 0.6, "A2": -0.2, "B3": -0.2 },
+      "thresholds": { "C2_min": 55, "C3_min": 50 },
+      "tags": ["morale","performance","branding","social_dominance","crowd_management"],
+      "strengths": ["Mobilizes people quickly", "Stabilizes morale in bleak conditions", "Builds social capital"],
+      "risks": ["May prioritize image over substance", "Can invite jealousy/targeting", "Risk of manipulation"],
+      "best_fit_roles_hint": ["carnival","casino_staff","advertiser","gang_identity_roles"]
+    }
+  ]
+}

@@ -1,0 +1,721 @@
+{
+  "version": "v1.0.0-A",
+  "traits": ["A1","A2","A3","B1","B2","B3","C1","C2","C3","D1","D2","D3"],
+  "trait_labels": {
+    "A1": "Leadership",
+    "A2": "Aggression",
+    "A3": "Autonomy",
+    "B1": "Risk Tolerance",
+    "B2": "Combat Exposure",
+    "B3": "Lethality Comfort",
+    "C1": "Empathy",
+    "C2": "Persuasion",
+    "C3": "Community Orientation",
+    "D1": "Technical Competence",
+    "D2": "Planning & Logistics",
+    "D3": "Adaptability"
+  },
+  "tones": ["de_escalatory","commanding","covert","technical","forceful","pragmatic"],
+  "questions": [
+    {
+      "id": "Q1",
+      "prompt": "A settlement guard accuses a traveler of theft. A crowd forms and tempers rise.",
+      "context": "You're close enough to intervene before it turns ugly.",
+      "primary_traits": ["C2","A1"],
+      "options": [
+        {"key":"A","label":"Step between them, slow things down, and get both sides talking.","tone":"de_escalatory","delta":{"C2":2,"C1":1,"A2":-1}},
+        {"key":"B","label":"Take charge: separate parties, assign a witness, start a quick check of facts.","tone":"commanding","delta":{"A1":2,"D2":1,"C3":1}},
+        {"key":"C","label":"Shadow the traveler quietly to see if they ditch anything or meet someone.","tone":"covert","delta":{"A3":2,"B1":1,"D3":1}},
+        {"key":"D","label":"Inspect locks/containers for tool marks and likely methods.","tone":"technical","delta":{"D1":2,"D2":1}},
+        {"key":"E","label":"Tell the crowd to back off—if violence starts, you'll end it fast.","tone":"forceful","delta":{"B2":2,"B3":1,"A2":1}},
+        {"key":"F","label":"Pull aside the most reasonable person and broker a face-saving compromise.","tone":"pragmatic","delta":{"C2":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q2",
+      "prompt": "Your group needs to cross a raider-patrolled bridge before nightfall.",
+      "context": "You have limited ammo and no guarantee of backup.",
+      "primary_traits": ["D2","B1"],
+      "options": [
+        {"key":"A","label":"Try to negotiate passage with gifts and calm confidence.","tone":"de_escalatory","delta":{"C2":2,"B1":1}},
+        {"key":"B","label":"Assign roles, set a crossing order, and enforce discipline.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Go ahead alone to scout and signal the safest timing.","tone":"covert","delta":{"A3":2,"B1":2}},
+        {"key":"D","label":"Rig a simple distraction (noise/light) to draw patrols away.","tone":"technical","delta":{"D1":2,"D3":1}},
+        {"key":"E","label":"Hit hard first: ambush the nearest patrol and push through while they’re stunned.","tone":"forceful","delta":{"B2":2,"B3":1,"A2":1}},
+        {"key":"F","label":"Change the plan: find an alternate crossing even if it’s longer.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q3",
+      "prompt": "A sick child needs medicine that only a rival town stocks.",
+      "context": "They dislike your settlement and overcharge outsiders.",
+      "primary_traits": ["C1","C2"],
+      "options": [
+        {"key":"A","label":"Appeal to their humanity—make it about the child, not politics.","tone":"de_escalatory","delta":{"C1":2,"C2":1}},
+        {"key":"B","label":"Bring a small delegation and formalize an agreement for future trade.","tone":"commanding","delta":{"A1":2,"D2":1,"C3":1}},
+        {"key":"C","label":"Use a cover story and buy quietly without drawing attention.","tone":"covert","delta":{"A3":2,"C2":1}},
+        {"key":"D","label":"Offer technical help (repairs/water system fix) as payment.","tone":"technical","delta":{"D1":2,"C3":1}},
+        {"key":"E","label":"Threaten consequences if they refuse; make it clear you can enforce it.","tone":"forceful","delta":{"A2":2,"B3":1}},
+        {"key":"F","label":"Trade something valuable now, then renegotiate later when emotions cool.","tone":"pragmatic","delta":{"D2":1,"C2":2}}
+      ]
+    },
+    {
+      "id": "Q4",
+      "prompt": "Your radio picks up a distress call from a collapsed building.",
+      "context": "It could be a trap—or real survivors.",
+      "primary_traits": ["B1","D3"],
+      "options": [
+        {"key":"A","label":"Approach openly and announce yourself, offering help first.","tone":"de_escalatory","delta":{"C1":1,"B1":1,"C3":1}},
+        {"key":"B","label":"Organize a perimeter and controlled entry with assigned sectors.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Recon quietly from cover and confirm signs of life before committing.","tone":"covert","delta":{"A3":2,"B1":1,"D3":1}},
+        {"key":"D","label":"Assess structural risks and improvise supports before entering.","tone":"technical","delta":{"D1":2,"D2":1}},
+        {"key":"E","label":"Go in fast with weapon ready—better to survive than be sorry.","tone":"forceful","delta":{"B2":2,"B3":1,"A2":1}},
+        {"key":"F","label":"Split effort: one team verifies, one stays mobile for extraction.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q5",
+      "prompt": "A valuable shipment arrives short; someone in your group skimmed supplies.",
+      "context": "If you accuse wrong, you lose trust. If you ignore, it repeats.",
+      "primary_traits": ["D2","A1"],
+      "options": [
+        {"key":"A","label":"Hold a calm meeting and ask for voluntary confession without threats.","tone":"de_escalatory","delta":{"C2":1,"C1":1,"C3":1}},
+        {"key":"B","label":"Run a structured audit and announce fair consequences.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Set a quiet trap: mark supplies and watch who takes them.","tone":"covert","delta":{"A3":2,"D3":1}},
+        {"key":"D","label":"Improve inventory controls (seals, logs, access rules).","tone":"technical","delta":{"D2":2,"D1":1}},
+        {"key":"E","label":"Make an example: threaten harsh punishment to deter future theft.","tone":"forceful","delta":{"A2":2,"B3":1}},
+        {"key":"F","label":"Address root causes: adjust rations/workloads so desperation drops.","tone":"pragmatic","delta":{"C3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q6",
+      "prompt": "You find a locked pre-war terminal controlling a door to a safe cache.",
+      "context": "Time is short; you hear movement nearby.",
+      "primary_traits": ["D1","B1"],
+      "options": [
+        {"key":"A","label":"Call out to the unseen people and offer to split what's inside.","tone":"de_escalatory","delta":{"C2":2,"B1":1}},
+        {"key":"B","label":"Assign a lookout, a breacher, and a carrier—move as a unit.","tone":"commanding","delta":{"A1":2,"D2":1}},
+        {"key":"C","label":"Slip away and circle to approach the door from another angle.","tone":"covert","delta":{"A3":2,"D3":1,"B1":1}},
+        {"key":"D","label":"Hack the terminal quickly and quietly.","tone":"technical","delta":{"D1":2,"D2":1}},
+        {"key":"E","label":"Force entry immediately, accepting noise and risk.","tone":"forceful","delta":{"B1":2,"A2":1,"B2":1}},
+        {"key":"F","label":"Abandon the cache—survival beats loot when unknowns are close.","tone":"pragmatic","delta":{"D3":1,"B1":-1,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q7",
+      "prompt": "A caravan offers a contract: escort them through a dangerous pass for high pay.",
+      "context": "Your people need caps, but losses would cripple you.",
+      "primary_traits": ["B1","D2"],
+      "options": [
+        {"key":"A","label":"Negotiate safer terms: less pay, more time, fewer risks.","tone":"de_escalatory","delta":{"C2":2,"D2":1}},
+        {"key":"B","label":"Accept and drill your team; set strict engagement rules and fallback points.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Take the job alone as advance scout to reduce exposure for others.","tone":"covert","delta":{"A3":2,"B1":2}},
+        {"key":"D","label":"Improve gear and comms first; only accept once readiness is real.","tone":"technical","delta":{"D1":1,"D2":2}},
+        {"key":"E","label":"Take it—risk is the price of profit. Hit threats hard.","tone":"forceful","delta":{"B1":2,"B2":1,"A2":1}},
+        {"key":"F","label":"Decline and seek smaller, repeatable income sources.","tone":"pragmatic","delta":{"D2":1,"C3":1,"B1":-1}}
+      ]
+    },
+    {
+      "id": "Q8",
+      "prompt": "A recruit panics during a firefight and freezes in the open.",
+      "context": "Seconds matter.",
+      "primary_traits": ["B2","A1"],
+      "options": [
+        {"key":"A","label":"Shout clear reassurance and guide them step-by-step to cover.","tone":"de_escalatory","delta":{"C1":1,"A1":1,"B2":1}},
+        {"key":"B","label":"Command: 'Move NOW' and physically pull them behind cover.","tone":"commanding","delta":{"A1":2,"B2":1}},
+        {"key":"C","label":"Throw a distraction and reposition so they can follow your movement.","tone":"covert","delta":{"D3":2,"A3":1}},
+        {"key":"D","label":"Deploy smoke/covering device if you have it.","tone":"technical","delta":{"D1":1,"D3":1,"B2":1}},
+        {"key":"E","label":"Leave them—focus on neutralizing the threat first.","tone":"forceful","delta":{"B3":1,"A2":1,"B2":2}},
+        {"key":"F","label":"Call a buddy system rule after: pair them permanently until confidence returns.","tone":"pragmatic","delta":{"C3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q9",
+      "prompt": "Your settlement council is deadlocked; no one will compromise.",
+      "context": "Food stores are dwindling and decisions are overdue.",
+      "primary_traits": ["A1","C2"],
+      "options": [
+        {"key":"A","label":"Facilitate: let each side speak, summarize, then seek shared goals.","tone":"de_escalatory","delta":{"C2":2,"C1":1}},
+        {"key":"B","label":"Take responsibility and propose a firm plan with timelines.","tone":"commanding","delta":{"A1":2,"D2":1}},
+        {"key":"C","label":"Work behind the scenes: build a coalition quietly before the next vote.","tone":"covert","delta":{"A3":1,"C2":2}},
+        {"key":"D","label":"Model outcomes: numbers, rations, and schedules to ground debate.","tone":"technical","delta":{"D2":2,"D1":1}},
+        {"key":"E","label":"Force the issue: threaten to remove obstructive members.","tone":"forceful","delta":{"A2":2,"A1":1}},
+        {"key":"F","label":"Create a temporary emergency policy that expires once stability returns.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q10",
+      "prompt": "You meet a stranger claiming to be from a secret resistance group.",
+      "context": "They ask you to deliver a package—no questions.",
+      "primary_traits": ["A3","B1"],
+      "options": [
+        {"key":"A","label":"Refuse gently unless they explain risks and safeguards.","tone":"de_escalatory","delta":{"C2":1,"D2":1,"B1":-1}},
+        {"key":"B","label":"Agree only if you can verify identity and set strict handoff rules.","tone":"commanding","delta":{"A1":1,"D2":2}},
+        {"key":"C","label":"Accept, but compartmentalize: learn nothing unnecessary and move quietly.","tone":"covert","delta":{"A3":2,"D3":1,"B1":1}},
+        {"key":"D","label":"Inspect the package for tracking, explosives, or tampering indicators.","tone":"technical","delta":{"D1":2,"D2":1}},
+        {"key":"E","label":"Threaten them for information—if it’s a trap, you’ll make it hurt.","tone":"forceful","delta":{"A2":2,"B3":1}},
+        {"key":"F","label":"Redirect: connect them to someone better suited while staying out of it.","tone":"pragmatic","delta":{"D3":1,"C3":1,"B1":-1}}
+      ]
+    },
+    {
+      "id": "Q11",
+      "prompt": "A reactor leak is contaminating water. Panic is spreading.",
+      "context": "Fixing it needs time and coordination.",
+      "primary_traits": ["D1","D2"],
+      "options": [
+        {"key":"A","label":"Calm people and explain simple steps to reduce exposure.","tone":"de_escalatory","delta":{"C2":1,"C3":2}},
+        {"key":"B","label":"Declare an emergency plan: rationing, rotations, and restricted zones.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Slip into restricted areas to assess the true source without causing alarm.","tone":"covert","delta":{"A3":2,"B1":1,"D3":1}},
+        {"key":"D","label":"Prioritize the technical fix: isolate valves, patch, and test outputs.","tone":"technical","delta":{"D1":2,"D2":1}},
+        {"key":"E","label":"Threaten looters and panic-mongers—order by fear if needed.","tone":"forceful","delta":{"A2":2,"B2":1}},
+        {"key":"F","label":"Set up temporary alternative supply routes while repairs proceed.","tone":"pragmatic","delta":{"D2":1,"D3":2}}
+      ]
+    },
+    {
+      "id": "Q12",
+      "prompt": "A friend asks you to hide them after they attacked someone in anger.",
+      "context": "They swear it was justified. Others want them punished.",
+      "primary_traits": ["C1","C3"],
+      "options": [
+        {"key":"A","label":"Hear them out privately, then encourage surrender with support.","tone":"de_escalatory","delta":{"C1":2,"C2":1}},
+        {"key":"B","label":"Bring them to leadership and negotiate a controlled accountability process.","tone":"commanding","delta":{"A1":2,"C3":1,"D2":1}},
+        {"key":"C","label":"Hide them temporarily and investigate what really happened.","tone":"covert","delta":{"A3":2,"D3":1}},
+        {"key":"D","label":"Collect evidence: injuries, witnesses, timeline—make the truth provable.","tone":"technical","delta":{"D2":2,"D1":1}},
+        {"key":"E","label":"Turn them in immediately—violence must be punished hard.","tone":"forceful","delta":{"A2":1,"B3":1,"C3":1}},
+        {"key":"F","label":"Arrange restitution: repair harm while preventing future escalation.","tone":"pragmatic","delta":{"C3":2,"C2":1}}
+      ]
+    },
+    {
+      "id": "Q13",
+      "prompt": "A hostile gang offers 'protection' for a monthly tribute.",
+      "context": "You can’t match them head-on.",
+      "primary_traits": ["C2","D3"],
+      "options": [
+        {"key":"A","label":"Negotiate for time and reduce tribute with careful concessions.","tone":"de_escalatory","delta":{"C2":2,"D2":1}},
+        {"key":"B","label":"Unify the town: militia schedules, watch posts, and contingency plans.","tone":"commanding","delta":{"A1":2,"C3":2}},
+        {"key":"C","label":"Infiltrate and identify their weak points or internal rivals.","tone":"covert","delta":{"A3":2,"D3":1,"B1":1}},
+        {"key":"D","label":"Improve defenses: chokepoints, alarms, reinforced gates.","tone":"technical","delta":{"D1":1,"D2":2}},
+        {"key":"E","label":"Strike their leadership in a single decisive hit.","tone":"forceful","delta":{"B2":2,"B3":1,"A2":1}},
+        {"key":"F","label":"Relocate quietly to a safer position before tribute traps you.","tone":"pragmatic","delta":{"D3":2,"B1":1}}
+      ]
+    },
+    {
+      "id": "Q14",
+      "prompt": "A trader offers a deal that feels 'too good'—rare ammo for cheap.",
+      "context": "Could be stolen or bait.",
+      "primary_traits": ["D2","C2"],
+      "options": [
+        {"key":"A","label":"Ask direct questions politely and watch their reactions.","tone":"de_escalatory","delta":{"C2":2,"D3":1}},
+        {"key":"B","label":"Set clear terms and verify provenance before purchase.","tone":"commanding","delta":{"A1":1,"D2":2}},
+        {"key":"C","label":"Buy a small amount first, then tail them to learn the source.","tone":"covert","delta":{"A3":2,"D3":1}},
+        {"key":"D","label":"Inspect ammo markings, manufacture patterns, and consistency.","tone":"technical","delta":{"D1":2,"D2":1}},
+        {"key":"E","label":"Intimidate them into revealing where it came from.","tone":"forceful","delta":{"A2":2,"B3":1}},
+        {"key":"F","label":"Decline and offer a fair price—stability beats bargains.","tone":"pragmatic","delta":{"C3":1,"D2":1,"B1":-1}}
+      ]
+    },
+    {
+      "id": "Q15",
+      "prompt": "A patrol reports footprints circling your settlement at night.",
+      "context": "No attack yet—just watching.",
+      "primary_traits": ["D3","B1"],
+      "options": [
+        {"key":"A","label":"Increase lanterns and send a message: you're alert, not afraid.","tone":"de_escalatory","delta":{"C3":1,"D2":1,"B1":1}},
+        {"key":"B","label":"Organize night rotations and assign a response protocol.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Set observation hides and track them back to their base.","tone":"covert","delta":{"A3":2,"B1":1,"D3":1}},
+        {"key":"D","label":"Lay quiet early-warning devices (trip lines, cans, chalk).","tone":"technical","delta":{"D1":1,"D2":1,"D3":1}},
+        {"key":"E","label":"Send an armed group to hunt them down immediately.","tone":"forceful","delta":{"B2":2,"A2":1}},
+        {"key":"F","label":"Bait them into a controlled reveal: visible supplies + hidden overwatch.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q16",
+      "prompt": "You’re offered leadership of a small unit, but it means leaving your home community behind.",
+      "context": "Both paths matter.",
+      "primary_traits": ["A1","C3"],
+      "options": [
+        {"key":"A","label":"Stay: your people need steady care more than personal advancement.","tone":"de_escalatory","delta":{"C3":2,"C1":1}},
+        {"key":"B","label":"Accept and build a successor plan so your community isn’t abandoned.","tone":"commanding","delta":{"A1":2,"D2":1,"C3":1}},
+        {"key":"C","label":"Accept, but keep your ties quiet—use your new reach to protect them indirectly.","tone":"covert","delta":{"A3":1,"C3":1,"D3":2}},
+        {"key":"D","label":"Negotiate resources/guarantees as part of taking the role.","tone":"technical","delta":{"D2":2,"C2":1}},
+        {"key":"E","label":"Accept without hesitation—power opens doors, sentiment slows you.","tone":"forceful","delta":{"A2":1,"A1":1,"B1":1}},
+        {"key":"F","label":"Delay the decision: test-run the role temporarily before committing.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q17",
+      "prompt": "A firefight ends and you capture an enemy who begs for mercy.",
+      "context": "Your group is divided on what to do.",
+      "primary_traits": ["B3","C1"],
+      "options": [
+        {"key":"A","label":"Stabilize them and question them calmly; keep them alive.","tone":"de_escalatory","delta":{"C1":2,"C2":1,"B3":-1}},
+        {"key":"B","label":"Detain them under guard and hold a quick tribunal.","tone":"commanding","delta":{"A1":2,"C3":1,"D2":1}},
+        {"key":"C","label":"Use them as a controlled informant—release under observation.","tone":"covert","delta":{"A3":2,"C2":1,"D3":1}},
+        {"key":"D","label":"Secure weapons, document evidence, and preserve chain-of-custody.","tone":"technical","delta":{"D2":2,"D1":1}},
+        {"key":"E","label":"Execute them—future risk eliminated.","tone":"forceful","delta":{"B3":2,"A2":1}},
+        {"key":"F","label":"Trade them to a nearby authority for supplies and reduced conflict.","tone":"pragmatic","delta":{"D2":1,"C2":1,"D3":1}}
+      ]
+    },
+    {
+      "id": "Q18",
+      "prompt": "A storm cuts power. Your radio tower dies and morale drops.",
+      "context": "People look to someone to fix it—or reassure them.",
+      "primary_traits": ["D1","C3"],
+      "options": [
+        {"key":"A","label":"Keep everyone calm, assign small comforts, and explain what you’ll do next.","tone":"de_escalatory","delta":{"C3":2,"C1":1}},
+        {"key":"B","label":"Assign teams: repair crew, security, and shelter logistics.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Check for sabotage quietly while others focus on shelter.","tone":"covert","delta":{"A3":2,"D3":1}},
+        {"key":"D","label":"Troubleshoot: isolate faults, replace parts, restore minimal function first.","tone":"technical","delta":{"D1":2,"D2":1}},
+        {"key":"E","label":"Blame and punish suspected slackers to restore discipline fast.","tone":"forceful","delta":{"A2":2}},
+        {"key":"F","label":"Improvise alternative comms (runners, signals) until repairs are done.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q19",
+      "prompt": "A local doctor asks you to escort them to retrieve supplies from a dangerous clinic.",
+      "context": "They’re vital to your community but not combat-trained.",
+      "primary_traits": ["C3","B2"],
+      "options": [
+        {"key":"A","label":"Agree and reassure them; prioritize their safety and patient outcomes.","tone":"de_escalatory","delta":{"C1":1,"C3":2}},
+        {"key":"B","label":"Plan the route, timing, and contingencies; brief them thoroughly.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Scout alone first and only bring them when the path is confirmed.","tone":"covert","delta":{"A3":2,"B1":1,"D3":1}},
+        {"key":"D","label":"Prepare protective gear and medical loadout optimally.","tone":"technical","delta":{"D1":1,"D2":1,"C3":1}},
+        {"key":"E","label":"Go aggressive: clear the clinic of threats so it’s safe afterwards.","tone":"forceful","delta":{"B2":2,"B3":1,"A2":1}},
+        {"key":"F","label":"Find a trade instead—swap with another town to avoid the trip.","tone":"pragmatic","delta":{"C2":1,"D2":1,"B1":-1}}
+      ]
+    },
+    {
+      "id": "Q20",
+      "prompt": "A stranger offers to teach you a valuable skill, but wants a personal secret in return.",
+      "context": "The skill could change your future.",
+      "primary_traits": ["A3","C2"],
+      "options": [
+        {"key":"A","label":"Decline politely; trust shouldn’t be bought with vulnerability.","tone":"de_escalatory","delta":{"C3":1,"B1":-1}},
+        {"key":"B","label":"Set boundaries and negotiate fair exchange without coercion.","tone":"commanding","delta":{"A1":1,"C2":2}},
+        {"key":"C","label":"Offer a harmless decoy secret and assess their intentions.","tone":"covert","delta":{"A3":2,"D3":1}},
+        {"key":"D","label":"Offer technical labor or supplies instead of personal info.","tone":"technical","delta":{"D1":1,"D2":1,"C2":1}},
+        {"key":"E","label":"Press them hard—if they want leverage, you’ll take it first.","tone":"forceful","delta":{"A2":2,"B3":1}},
+        {"key":"F","label":"Delay: learn what you can from observation before committing.","tone":"pragmatic","delta":{"D3":2,"A3":1}}
+      ]
+    },
+    {
+      "id": "Q21",
+      "prompt": "Your team is exhausted. Pushing onward saves time, but mistakes are rising.",
+      "context": "You must choose the pace.",
+      "primary_traits": ["D2","C3"],
+      "options": [
+        {"key":"A","label":"Stop early and focus on rest, warmth, and recovery.","tone":"de_escalatory","delta":{"C1":1,"C3":2}},
+        {"key":"B","label":"Enforce rotations and brief, disciplined rests; keep moving with structure.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Volunteer for the hardest shift so others can recover.","tone":"covert","delta":{"A3":2,"C3":1}},
+        {"key":"D","label":"Optimize load distribution and route to reduce fatigue.","tone":"technical","delta":{"D2":2,"D1":1}},
+        {"key":"E","label":"Push through—weakness gets people killed later.","tone":"forceful","delta":{"B1":2,"A2":1}},
+        {"key":"F","label":"Adjust plan: shorter legs, more checkpoints, flexible arrival time.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q22",
+      "prompt": "You find a damaged robot that could be repaired into a strong ally.",
+      "context": "Fixing it costs time and parts you might need later.",
+      "primary_traits": ["D1","D3"],
+      "options": [
+        {"key":"A","label":"Ask nearby settlers if they need help first; avoid drawing attention.","tone":"de_escalatory","delta":{"C3":1,"B1":-1}},
+        {"key":"B","label":"Decide as a group: cost/benefit, then commit with clear roles.","tone":"commanding","delta":{"A1":2,"D2":1}},
+        {"key":"C","label":"Repair it quietly and keep it hidden until you’re sure it’s safe.","tone":"covert","delta":{"A3":2,"D3":1}},
+        {"key":"D","label":"Salvage and repair efficiently; restore minimal function, then upgrade later.","tone":"technical","delta":{"D1":2,"D2":1}},
+        {"key":"E","label":"Strip it for parts—no time for luxury projects.","tone":"forceful","delta":{"A2":1,"D2":1}},
+        {"key":"F","label":"Patch it enough to walk, then relocate and finish later.","tone":"pragmatic","delta":{"D3":2,"D1":1}}
+      ]
+    },
+    {
+      "id": "Q23",
+      "prompt": "A rival leader spreads rumors that you’re untrustworthy.",
+      "context": "Your alliances are at risk.",
+      "primary_traits": ["C2","A1"],
+      "options": [
+        {"key":"A","label":"Address it openly with calm facts and personal sincerity.","tone":"de_escalatory","delta":{"C2":2,"C1":1}},
+        {"key":"B","label":"Confront them in public with a structured challenge and demand accountability.","tone":"commanding","delta":{"A1":2,"C2":1}},
+        {"key":"C","label":"Undermine them quietly: gather proof of their lies and reveal at the right time.","tone":"covert","delta":{"A3":2,"D3":1,"C2":1}},
+        {"key":"D","label":"Create a transparent record system so your actions speak for themselves.","tone":"technical","delta":{"D2":2,"C3":1}},
+        {"key":"E","label":"Threaten them—fear shuts mouths faster than truth.","tone":"forceful","delta":{"A2":2,"B3":1}},
+        {"key":"F","label":"Shift focus: strengthen alliances directly and let the rumor die from irrelevance.","tone":"pragmatic","delta":{"C3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q24",
+      "prompt": "You’re offered a high-paying job to sabotage another group’s water supply.",
+      "context": "It’s profitable, but impacts civilians.",
+      "primary_traits": ["C1","B3"],
+      "options": [
+        {"key":"A","label":"Refuse and explain why; no profit is worth innocent suffering.","tone":"de_escalatory","delta":{"C1":2,"C3":1,"B3":-1}},
+        {"key":"B","label":"Refuse and warn the target group to strengthen defenses.","tone":"commanding","delta":{"A1":1,"C3":2,"D2":1}},
+        {"key":"C","label":"Pretend to accept to learn who’s behind it and stop them quietly.","tone":"covert","delta":{"A3":2,"D3":1,"C2":1}},
+        {"key":"D","label":"Advise the employer on non-lethal alternatives that still meet their goals.","tone":"technical","delta":{"D2":1,"C2":1,"C3":1}},
+        {"key":"E","label":"Take the job—survival is survival. Don’t moralize.","tone":"forceful","delta":{"B3":2,"A2":1,"C1":-1}},
+        {"key":"F","label":"Counter-offer: accept only if it targets infrastructure, not civilians, and reduces harm.","tone":"pragmatic","delta":{"C2":1,"D3":1,"C3":1}}
+      ]
+    },
+    {
+      "id": "Q25",
+      "prompt": "A rescue mission is possible, but only if someone volunteers for the most dangerous route.",
+      "context": "You’re the most capable person available.",
+      "primary_traits": ["B1","A3"],
+      "options": [
+        {"key":"A","label":"Volunteer, but bring someone along so nobody dies alone.","tone":"de_escalatory","delta":{"C1":1,"B1":1,"C3":1}},
+        {"key":"B","label":"Choose the volunteer based on readiness and assign strong support.","tone":"commanding","delta":{"A1":2,"D2":1}},
+        {"key":"C","label":"Go alone and move fast; the fewer exposed, the better.","tone":"covert","delta":{"A3":2,"B1":2}},
+        {"key":"D","label":"Reduce danger with equipment, maps, and contingency plans first.","tone":"technical","delta":{"D2":2,"D1":1}},
+        {"key":"E","label":"Go in loud and hard—clear the route by force.","tone":"forceful","delta":{"B2":2,"A2":1,"B3":1}},
+        {"key":"F","label":"Find a third way: negotiate, trade, or delay until conditions improve.","tone":"pragmatic","delta":{"D3":2,"C2":1}}
+      ]
+    },
+    {
+      "id": "Q26",
+      "prompt": "A workshop fire breaks out. Supplies and tools are at risk.",
+      "context": "People are shouting conflicting instructions.",
+      "primary_traits": ["A1","D3"],
+      "options": [
+        {"key":"A","label":"Calm panic, guide evacuations, and keep people from rushing in.","tone":"de_escalatory","delta":{"C2":1,"C3":1,"C1":1}},
+        {"key":"B","label":"Take command: bucket line, rescue team, and perimeter roles.","tone":"commanding","delta":{"A1":2,"D2":1}},
+        {"key":"C","label":"Slip inside quickly to retrieve the most critical item before it’s lost.","tone":"covert","delta":{"A3":2,"B1":1}},
+        {"key":"D","label":"Cut fuel sources, isolate ignition points, and use the right extinguishing method.","tone":"technical","delta":{"D1":2,"D3":1}},
+        {"key":"E","label":"Force people into action with harsh orders—no time for feelings.","tone":"forceful","delta":{"A2":2,"A1":1}},
+        {"key":"F","label":"Prioritize: save lives first, then only the top survival-critical equipment.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q27",
+      "prompt": "You’re asked to train new recruits who have never fought before.",
+      "context": "Threats are increasing; you need them ready soon.",
+      "primary_traits": ["A1","D2"],
+      "options": [
+        {"key":"A","label":"Start gentle: confidence, safety, and teamwork before drills.","tone":"de_escalatory","delta":{"C1":1,"C3":2}},
+        {"key":"B","label":"Build a structured program with clear standards and progression.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Teach by shadowing: pair them with experienced members quietly.","tone":"covert","delta":{"A3":1,"C3":1,"D3":1}},
+        {"key":"D","label":"Focus on practical skills: maintenance, cover usage, and basic tactics.","tone":"technical","delta":{"D1":1,"D2":2}},
+        {"key":"E","label":"Break them in fast with stress drills—fear inoculation works.","tone":"forceful","delta":{"A2":1,"B2":2,"B1":1}},
+        {"key":"F","label":"Prioritize role-fit: scouts, medics, guards—train based on strengths.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q28",
+      "prompt": "A powerful faction offers protection if you provide intelligence on your neighbors.",
+      "context": "Refusal might bring trouble. Acceptance betrays trust.",
+      "primary_traits": ["C3","C2"],
+      "options": [
+        {"key":"A","label":"Refuse politely and emphasize neutrality and peace.","tone":"de_escalatory","delta":{"C2":1,"C3":2}},
+        {"key":"B","label":"Refuse formally and coordinate a defensive pact with neighbors.","tone":"commanding","delta":{"A1":2,"C3":2}},
+        {"key":"C","label":"Feed them harmless misinformation to buy time and reduce threat.","tone":"covert","delta":{"A3":2,"D3":1,"C2":1}},
+        {"key":"D","label":"Create a transparent info-sharing charter so spying becomes harder.","tone":"technical","delta":{"D2":2,"C3":1}},
+        {"key":"E","label":"Accept and rationalize it—survival requires hard choices.","tone":"forceful","delta":{"B3":1,"A2":1,"C1":-1}},
+        {"key":"F","label":"Redirect them toward legitimate trade agreements instead of intel.","tone":"pragmatic","delta":{"C2":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q29",
+      "prompt": "A raider camp is vulnerable tonight. Taking it out could save lives later.",
+      "context": "But you risk casualties and retaliation.",
+      "primary_traits": ["B2","D2"],
+      "options": [
+        {"key":"A","label":"Warn nearby settlements and avoid escalation unless attacked.","tone":"de_escalatory","delta":{"C3":2,"B1":-1}},
+        {"key":"B","label":"Plan a joint operation: intel, roles, exfil routes, and rules.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Infiltrate to sabotage supplies and reduce their capability without open war.","tone":"covert","delta":{"A3":2,"D3":1,"B1":1}},
+        {"key":"D","label":"Set traps and defensive works so they break themselves on your perimeter.","tone":"technical","delta":{"D1":1,"D2":2}},
+        {"key":"E","label":"Hit them hard—decapitate leadership and make it permanent.","tone":"forceful","delta":{"B2":2,"B3":2,"A2":1}},
+        {"key":"F","label":"Target only their mobility (fuel, ammo) then leave; reduce risk of revenge.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q30",
+      "prompt": "A stranger asks to join your group. Their story checks out—but you feel unsure.",
+      "context": "Turning them away feels cruel; accepting could be dangerous.",
+      "primary_traits": ["C1","D3"],
+      "options": [
+        {"key":"A","label":"Give them a chance with kindness and a clear support path.","tone":"de_escalatory","delta":{"C1":2,"C3":1}},
+        {"key":"B","label":"Accept with probation, rules, and a sponsor responsible for them.","tone":"commanding","delta":{"A1":2,"D2":1,"C3":1}},
+        {"key":"C","label":"Accept but compartmentalize: limited access until trust is earned.","tone":"covert","delta":{"A3":2,"D3":1}},
+        {"key":"D","label":"Verify with practical checks: skills test, references, and consistency.","tone":"technical","delta":{"D2":2,"D1":1}},
+        {"key":"E","label":"Reject them harshly—weak links get you killed.","tone":"forceful","delta":{"A2":1,"B3":1,"C1":-1}},
+        {"key":"F","label":"Redirect them to a safer allied settlement better suited for intake.","tone":"pragmatic","delta":{"C3":1,"C2":1,"D3":1}}
+      ]
+    },
+    {
+      "id": "Q31",
+      "prompt": "Your ammo supply is low. You can craft more, but it will be imperfect and risky.",
+      "context": "You might need it soon.",
+      "primary_traits": ["D1","D2"],
+      "options": [
+        {"key":"A","label":"Seek trade first—avoid dangerous shortcuts.","tone":"de_escalatory","delta":{"C2":1,"D2":1,"B1":-1}},
+        {"key":"B","label":"Implement strict rationing and assign ammo by mission priority.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Scavenge alone for better materials to reduce failure rates.","tone":"covert","delta":{"A3":2,"B1":1}},
+        {"key":"D","label":"Craft carefully: quality control, test batches, and documentation.","tone":"technical","delta":{"D1":2,"D2":1}},
+        {"key":"E","label":"Make it fast and accept misfires—quantity wins fights.","tone":"forceful","delta":{"B1":2,"A2":1}},
+        {"key":"F","label":"Switch doctrine: avoid firefights, use deterrence and mobility.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q32",
+      "prompt": "A friend confides they’re overwhelmed and close to breaking.",
+      "context": "You’re busy, but ignoring it could cost them—and the group.",
+      "primary_traits": ["C1","C3"],
+      "options": [
+        {"key":"A","label":"Sit with them now and listen—no agenda, just support.","tone":"de_escalatory","delta":{"C1":2,"C3":1}},
+        {"key":"B","label":"Arrange formal support: rest rotation, buddy system, and clear duties.","tone":"commanding","delta":{"A1":1,"D2":1,"C3":2}},
+        {"key":"C","label":"Check on them quietly and shield them from extra scrutiny.","tone":"covert","delta":{"A3":1,"C1":1,"D3":1}},
+        {"key":"D","label":"Provide practical tools: breathing drills, routines, and coping plans.","tone":"technical","delta":{"D2":1,"C1":1,"D3":1}},
+        {"key":"E","label":"Tell them to toughen up—people depend on them.","tone":"forceful","delta":{"A2":1,"B1":1,"C1":-1}},
+        {"key":"F","label":"Redistribute responsibilities to reduce load without shaming them.","tone":"pragmatic","delta":{"C3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q33",
+      "prompt": "A mission fails. People blame each other and morale collapses.",
+      "context": "You need recovery and learning—fast.",
+      "primary_traits": ["A1","D3"],
+      "options": [
+        {"key":"A","label":"Hold a calm debrief focused on feelings and facts, not blame.","tone":"de_escalatory","delta":{"C1":1,"C2":1,"C3":1}},
+        {"key":"B","label":"Run a structured after-action review with clear lessons and changes.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Identify the real root cause quietly and address it without public drama.","tone":"covert","delta":{"A3":2,"D3":1}},
+        {"key":"D","label":"Create checklists/procedures so the failure mode can’t recur.","tone":"technical","delta":{"D2":2,"D1":1}},
+        {"key":"E","label":"Punish someone to restore order and deter mistakes.","tone":"forceful","delta":{"A2":2,"B3":1}},
+        {"key":"F","label":"Change tactics immediately and adapt—don’t overanalyze under pressure.","tone":"pragmatic","delta":{"D3":2,"B1":1}}
+      ]
+    },
+    {
+      "id": "Q34",
+      "prompt": "You discover evidence that a respected leader has been skimming resources.",
+      "context": "Exposing it could fracture the community.",
+      "primary_traits": ["C3","C2"],
+      "options": [
+        {"key":"A","label":"Confront them privately and offer a path to make it right.","tone":"de_escalatory","delta":{"C1":1,"C2":1,"C3":1}},
+        {"key":"B","label":"Bring it to a council process with evidence and fair oversight.","tone":"commanding","delta":{"A1":2,"D2":1,"C3":1}},
+        {"key":"C","label":"Use the information as leverage to force better outcomes quietly.","tone":"covert","delta":{"A3":2,"C2":1,"D3":1}},
+        {"key":"D","label":"Secure evidence: copies, witnesses, and logs before any accusation.","tone":"technical","delta":{"D2":2,"D1":1}},
+        {"key":"E","label":"Expose them publicly immediately—let the crowd decide.","tone":"forceful","delta":{"A2":1,"B1":1}},
+        {"key":"F","label":"Time the reveal: stabilize supplies first, then address leadership reform.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q35",
+      "prompt": "A firefight is inevitable, but you can choose the battleground.",
+      "context": "Your goal is survival, not glory.",
+      "primary_traits": ["D2","D3"],
+      "options": [
+        {"key":"A","label":"Try one last negotiation to avoid bloodshed altogether.","tone":"de_escalatory","delta":{"C2":2,"B3":-1}},
+        {"key":"B","label":"Pick terrain deliberately and assign arcs, cover, and fallback positions.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Set an ambush with minimal exposure and an escape route.","tone":"covert","delta":{"A3":2,"D3":1,"B1":1}},
+        {"key":"D","label":"Engineer the space: barriers, choke points, and field expedient cover.","tone":"technical","delta":{"D1":1,"D2":2}},
+        {"key":"E","label":"Charge before they’re ready—aggression wins momentum.","tone":"forceful","delta":{"A2":2,"B2":2}},
+        {"key":"F","label":"Feint and reposition mid-fight—keep them reacting to you.","tone":"pragmatic","delta":{"D3":2,"B1":1}}
+      ]
+    },
+    {
+      "id": "Q36",
+      "prompt": "You’re offered a role as an information broker—high profit, high risk.",
+      "context": "You’d know secrets that get people killed.",
+      "primary_traits": ["C2","B1"],
+      "options": [
+        {"key":"A","label":"Decline—information power corrodes communities.","tone":"de_escalatory","delta":{"C3":1,"C1":1,"B1":-1}},
+        {"key":"B","label":"Accept with ethics: rules on harm, consent, and verification.","tone":"commanding","delta":{"A1":1,"D2":1,"C3":1}},
+        {"key":"C","label":"Accept but stay invisible; compartmentalize everything.","tone":"covert","delta":{"A3":2,"B1":1,"D3":1}},
+        {"key":"D","label":"Build secure systems: codes, dead drops, and redundancy.","tone":"technical","delta":{"D1":1,"D2":2}},
+        {"key":"E","label":"Use leverage ruthlessly—people pay to stay safe.","tone":"forceful","delta":{"A2":2,"C2":1,"B3":1}},
+        {"key":"F","label":"Pilot it small: limited clients, limited scope, and exit plans.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q37",
+      "prompt": "A team member is careless with weapon safety, risking accidents.",
+      "context": "They’re talented, but reckless.",
+      "primary_traits": ["A1","B3"],
+      "options": [
+        {"key":"A","label":"Coach them gently and explain consequences without humiliation.","tone":"de_escalatory","delta":{"C1":1,"C2":1,"D2":1}},
+        {"key":"B","label":"Enforce standards: mandatory retraining and temporary restriction.","tone":"commanding","delta":{"A1":2,"D2":1}},
+        {"key":"C","label":"Pair them with a strict mentor quietly to correct behavior.","tone":"covert","delta":{"A3":1,"D3":1,"C3":1}},
+        {"key":"D","label":"Introduce mechanical/kit safeguards to reduce human error.","tone":"technical","delta":{"D1":2,"D2":1}},
+        {"key":"E","label":"Threaten punishment—fear fixes habits fast.","tone":"forceful","delta":{"A2":2,"B3":1}},
+        {"key":"F","label":"Move them into a role where their talent matters but safety risk is lower.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q38",
+      "prompt": "You have one dose of anti-venom. Two people are bitten.",
+      "context": "One is a valuable specialist; one is a child.",
+      "primary_traits": ["C1","D2"],
+      "options": [
+        {"key":"A","label":"Give it to the child—no debate.","tone":"de_escalatory","delta":{"C1":2,"C3":1}},
+        {"key":"B","label":"Make a transparent decision with witnesses and agreed principles.","tone":"commanding","delta":{"A1":2,"C3":1,"D2":1}},
+        {"key":"C","label":"Quietly give it to the one most likely to survive and help later.","tone":"covert","delta":{"A3":1,"D3":1,"B3":1}},
+        {"key":"D","label":"Attempt a partial dose strategy and improvise supportive care for both.","tone":"technical","delta":{"D1":1,"D3":1,"C1":1}},
+        {"key":"E","label":"Decide purely by utility: specialist first.","tone":"forceful","delta":{"B3":1,"A2":1,"C1":-1}},
+        {"key":"F","label":"Seek immediate trade/aid while stabilizing both—buy time.","tone":"pragmatic","delta":{"D3":2,"C2":1}}
+      ]
+    },
+    {
+      "id": "Q39",
+      "prompt": "A settlement festival is planned, but security is thin.",
+      "context": "Some say cancel; others say morale is survival.",
+      "primary_traits": ["C3","D2"],
+      "options": [
+        {"key":"A","label":"Hold it, but keep it calm and community-focused—reduce risks without fear.","tone":"de_escalatory","delta":{"C3":2,"C2":1}},
+        {"key":"B","label":"Run it with security structure: entry checks, patrols, and response plans.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Watch quietly for suspicious behavior and intervene early.","tone":"covert","delta":{"A3":2,"D3":1}},
+        {"key":"D","label":"Improve lighting, barriers, and alarms—engineering beats panic.","tone":"technical","delta":{"D1":1,"D2":2}},
+        {"key":"E","label":"Cancel and enforce curfew—fun isn’t worth vulnerability.","tone":"forceful","delta":{"A2":1,"B1":-1}},
+        {"key":"F","label":"Scale it down: smaller gatherings, staggered times, safer layout.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q40",
+      "prompt": "You’re lost in ruins. Your map is wrong and daylight is fading.",
+      "context": "You need a new plan quickly.",
+      "primary_traits": ["D3","B1"],
+      "options": [
+        {"key":"A","label":"Stop moving, breathe, and reassess calmly before making it worse.","tone":"de_escalatory","delta":{"D3":1,"B1":-1}},
+        {"key":"B","label":"Establish control: pick a rally point, assign bearings, and move as one.","tone":"commanding","delta":{"A1":2,"D2":1}},
+        {"key":"C","label":"Climb or scout alone to regain orientation without slowing the group.","tone":"covert","delta":{"A3":2,"B1":2}},
+        {"key":"D","label":"Use landmarks, stars, and improvised tools to rebuild navigation.","tone":"technical","delta":{"D1":1,"D2":1,"D3":1}},
+        {"key":"E","label":"Push fast in one direction—hesitation kills more than wrong turns.","tone":"forceful","delta":{"B1":2,"A2":1}},
+        {"key":"F","label":"Change objective: secure shelter now, navigate tomorrow.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q41",
+      "prompt": "A powerful merchant asks you to 'rough up' a competitor—no killing, just a message.",
+      "context": "It’s lucrative and common in the region.",
+      "primary_traits": ["A2","B3"],
+      "options": [
+        {"key":"A","label":"Refuse and suggest non-violent competition.","tone":"de_escalatory","delta":{"C3":1,"C1":1,"A2":-1}},
+        {"key":"B","label":"Decline and warn the competitor discreetly to prevent escalation.","tone":"commanding","delta":{"A1":1,"C3":1,"D2":1}},
+        {"key":"C","label":"Pretend to accept, then sabotage the plan quietly.","tone":"covert","delta":{"A3":2,"D3":1}},
+        {"key":"D","label":"Offer mediation terms between them instead—contracts over bruises.","tone":"technical","delta":{"D2":1,"C2":2}},
+        {"key":"E","label":"Do it—fear is currency. Make the message memorable.","tone":"forceful","delta":{"A2":2,"B3":1,"B2":1}},
+        {"key":"F","label":"Counter-offer: provide security assessment instead of violence.","tone":"pragmatic","delta":{"D1":1,"D2":1,"C2":1}}
+      ]
+    },
+    {
+      "id": "Q42",
+      "prompt": "You’re asked to run a safe house for people being hunted.",
+      "context": "If discovered, everyone dies.",
+      "primary_traits": ["C3","A3"],
+      "options": [
+        {"key":"A","label":"Agree because it’s right—and focus on care and stability for them.","tone":"de_escalatory","delta":{"C1":1,"C3":2}},
+        {"key":"B","label":"Agree and impose strict protocols: vetting, schedules, and compartmentalization.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Agree but keep your role hidden; you’ll run it like a shadow network.","tone":"covert","delta":{"A3":2,"D3":1,"B1":1}},
+        {"key":"D","label":"Fortify discreetly: hidden caches, alarms, and escape routes.","tone":"technical","delta":{"D1":1,"D2":1,"D3":1}},
+        {"key":"E","label":"Refuse—too risky. You won’t sacrifice your community.","tone":"forceful","delta":{"B1":-1,"A2":1,"C3":-1}},
+        {"key":"F","label":"Help indirectly: connect them to a better location and provide supplies.","tone":"pragmatic","delta":{"C3":1,"C2":1,"D3":1}}
+      ]
+    },
+    {
+      "id": "Q43",
+      "prompt": "A mission requires a convincing disguise and acting skills.",
+      "context": "Failure means capture.",
+      "primary_traits": ["C2","A3"],
+      "options": [
+        {"key":"A","label":"Practice empathy: understand the target persona and speak naturally.","tone":"de_escalatory","delta":{"C1":1,"C2":2}},
+        {"key":"B","label":"Assign roles and scripts; drill until everyone can perform reliably.","tone":"commanding","delta":{"A1":2,"D2":1}},
+        {"key":"C","label":"Improvise and adapt mid-stream; you’ll blend in by reading the room.","tone":"covert","delta":{"A3":2,"D3":1,"C2":1}},
+        {"key":"D","label":"Engineer details: documents, props, and consistent cover story mechanics.","tone":"technical","delta":{"D1":1,"D2":2}},
+        {"key":"E","label":"Skip disguise—go armed and accept the fight.","tone":"forceful","delta":{"B2":2,"A2":1}},
+        {"key":"F","label":"Reduce exposure: shorten time on-site and limit who goes.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q44",
+      "prompt": "Your group debates whether to expand territory or consolidate and fortify.",
+      "context": "Expansion increases resources but draws conflict.",
+      "primary_traits": ["D2","C3"],
+      "options": [
+        {"key":"A","label":"Consolidate: strengthen community and avoid needless enemies.","tone":"de_escalatory","delta":{"C3":2,"B1":-1}},
+        {"key":"B","label":"Choose a structured expansion: phased, defended, and supply-backed.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Expand quietly through influence: trade ties and soft control, not flags.","tone":"covert","delta":{"A3":2,"C2":1,"D3":1}},
+        {"key":"D","label":"Run the numbers: logistics, water, labor, and realistic sustainment.","tone":"technical","delta":{"D2":2,"D1":1}},
+        {"key":"E","label":"Expand by force—dominance prevents threats later.","tone":"forceful","delta":{"A2":2,"B2":1,"B3":1}},
+        {"key":"F","label":"Hybrid approach: fortify now, prepare expansion later when conditions align.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q45",
+      "prompt": "A teammate suggests executing a captured enemy to 'send a message'.",
+      "context": "You’re responsible for what your group becomes.",
+      "primary_traits": ["C3","B3"],
+      "options": [
+        {"key":"A","label":"Reject it—your identity matters. No cruelty-as-policy.","tone":"de_escalatory","delta":{"C3":2,"C1":1,"B3":-1}},
+        {"key":"B","label":"Set doctrine: prisoners are handled by rules, not emotions.","tone":"commanding","delta":{"A1":2,"D2":1,"C3":1}},
+        {"key":"C","label":"Redirect: stage a non-lethal deception that still deters enemies.","tone":"covert","delta":{"A3":2,"D3":1}},
+        {"key":"D","label":"Document the captive’s crimes and deliver them to a legitimate authority.","tone":"technical","delta":{"D2":2,"C3":1}},
+        {"key":"E","label":"Agree—fear is efficient. Mercy is weakness.","tone":"forceful","delta":{"B3":2,"A2":1,"C1":-1}},
+        {"key":"F","label":"Use restorative leverage: trade, ransom, or intel extraction without killing.","tone":"pragmatic","delta":{"C2":1,"D2":1,"D3":1}}
+      ]
+    },
+    {
+      "id": "Q46",
+      "prompt": "A generator part is failing. You can fix it now with a risky workaround or wait for proper parts.",
+      "context": "If it fails completely, you lose heat and water pumps.",
+      "primary_traits": ["D1","B1"],
+      "options": [
+        {"key":"A","label":"Explain the risk to everyone and choose the safest path even if harder.","tone":"de_escalatory","delta":{"C3":1,"D2":1,"B1":-1}},
+        {"key":"B","label":"Decide and coordinate: controlled downtime, rationing, and repair schedule.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Attempt the workaround quietly at off-hours to avoid panic.","tone":"covert","delta":{"A3":2,"B1":1,"D3":1}},
+        {"key":"D","label":"Do the workaround with testing steps and fail-safes.","tone":"technical","delta":{"D1":2,"D2":1}},
+        {"key":"E","label":"Do it immediately—if it blows, you’ll deal with it then.","tone":"forceful","delta":{"B1":2,"A2":1}},
+        {"key":"F","label":"Patch for minimal function now, then replace properly when parts arrive.","tone":"pragmatic","delta":{"D3":2,"D1":1}}
+      ]
+    },
+    {
+      "id": "Q47",
+      "prompt": "A propaganda flyer campaign is turning locals against you.",
+      "context": "You don’t control the printing source—yet.",
+      "primary_traits": ["C2","D3"],
+      "options": [
+        {"key":"A","label":"Counter with calm public outreach and consistent behavior.","tone":"de_escalatory","delta":{"C2":2,"C3":1}},
+        {"key":"B","label":"Coordinate a message strategy and community allies to rebut it.","tone":"commanding","delta":{"A1":2,"D2":1,"C3":1}},
+        {"key":"C","label":"Identify the source quietly and disrupt distribution without spectacle.","tone":"covert","delta":{"A3":2,"D3":1}},
+        {"key":"D","label":"Produce your own leaflets with verifiable facts and receipts.","tone":"technical","delta":{"D2":2,"D1":1}},
+        {"key":"E","label":"Threaten anyone caught spreading it—fear stops rumors.","tone":"forceful","delta":{"A2":2,"B3":1}},
+        {"key":"F","label":"Change the narrative: demonstrate value through actions, not words.","tone":"pragmatic","delta":{"C3":2,"D3":1}}
+      ]
+    },
+    {
+      "id": "Q48",
+      "prompt": "You’re offered a chance to steal advanced weapons from a locked facility.",
+      "context": "Success upgrades your power; failure may kill you.",
+      "primary_traits": ["B1","D1"],
+      "options": [
+        {"key":"A","label":"Decline—arming up isn’t worth the likely cost.","tone":"de_escalatory","delta":{"B1":-1,"C3":1}},
+        {"key":"B","label":"Plan thoroughly: recon, timing, extraction, and contingencies.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Go in quietly with minimal team and avoid detection entirely.","tone":"covert","delta":{"A3":2,"B1":1,"D3":1}},
+        {"key":"D","label":"Approach as a technical problem: bypass systems, disable sensors, open cleanly.","tone":"technical","delta":{"D1":2,"D2":1}},
+        {"key":"E","label":"Hit it by force—breach and fight your way out with shock and speed.","tone":"forceful","delta":{"B2":2,"B3":1,"A2":1}},
+        {"key":"F","label":"Seek alternative acquisition: trade, salvage, or smaller upgrades over time.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q49",
+      "prompt": "A remote outpost requests help. You can spare only one specialist: medic, engineer, or fighter.",
+      "context": "All are needed at home too.",
+      "primary_traits": ["D2","C3"],
+      "options": [
+        {"key":"A","label":"Send the medic—saving lives is the priority.","tone":"de_escalatory","delta":{"C1":1,"C3":2}},
+        {"key":"B","label":"Choose based on mission needs and plan support logistics for them.","tone":"commanding","delta":{"A1":2,"D2":2}},
+        {"key":"C","label":"Go yourself so you don’t weaken home defenses with a key person absent.","tone":"covert","delta":{"A3":2,"B1":1}},
+        {"key":"D","label":"Send the engineer to stabilize infrastructure so the outpost becomes self-sufficient.","tone":"technical","delta":{"D1":1,"D2":1,"C3":1}},
+        {"key":"E","label":"Send the fighter—security first; everything else is secondary.","tone":"forceful","delta":{"B2":2,"A2":1}},
+        {"key":"F","label":"Send a small mixed kit and remote guidance; reduce dependence on one person.","tone":"pragmatic","delta":{"D3":2,"D2":1}}
+      ]
+    },
+    {
+      "id": "Q50",
+      "prompt": "You’re offered a chance to reshape a faction from within.",
+      "context": "It means compromise, secrecy, and long-term risk.",
+      "primary_traits": ["A1","D3"],
+      "options": [
+        {"key":"A","label":"Decline—your integrity matters more than influence.","tone":"de_escalatory","delta":{"C3":1,"C1":1,"B1":-1}},
+        {"key":"B","label":"Accept openly with clear principles and a visible reform platform.","tone":"commanding","delta":{"A1":2,"C2":1,"C3":1}},
+        {"key":"C","label":"Accept covertly: operate quietly, build allies, and move slowly.","tone":"covert","delta":{"A3":2,"D3":1,"C2":1}},
+        {"key":"D","label":"Accept only with a detailed plan: milestones, resources, and exit conditions.","tone":"technical","delta":{"D2":2,"A1":1}},
+        {"key":"E","label":"Accept and take power fast—crush opposition before it forms.","tone":"forceful","delta":{"A2":2,"B3":1,"A1":1}},
+        {"key":"F","label":"Accept conditionally: test the waters, adapt, and bail if harm increases.","tone":"pragmatic","delta":{"D3":2,"B1":1}}
+      ]
+    }
+  ]
+}
