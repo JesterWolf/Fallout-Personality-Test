@@ -41,8 +41,8 @@
       "Law Enforcer",
       "Scout"
     ],
-    "notes": "A long-range lawman in a duster and patrol hat, sent to keep roads open, track raiders, and project NCR authority beyond the settled heartland.",
-    "img": "https://static0.polygonimages.com/wordpress/wp-content/uploads/chorus/uploads/chorus_asset/file/25384858/vault_boy.jpg"
+    "notes": "A long-range lawman, sent to keep roads open, track raiders, and project NCR authority beyond the settled heartland. Employed as the specialists of the NCR.",
+    "img": "https://images.fallout.wiki/thumb/2/27/NCR_Lads_1.jpg/539px-NCR_Lads_1.jpg"
   },
   {
     "id": "NEW_CALIFORNIA_REPUBLIC__NCR_VETERAN_RANGER",
@@ -67,10 +67,10 @@
       "Military",
       "Covert Operative",
       "Intelligence",
-      "Scout"
+      "Special Operations"
     ],
-    "notes": "The NCR\u2019s elite field operator: seasoned, heavily trusted, and used for high-risk scouting, counter-raider work, and missions where experience matters more than comfort.",
-    "img": "https://static0.polygonimages.com/wordpress/wp-content/uploads/chorus/uploads/chorus_asset/file/25384858/vault_boy.jpg"
+    "notes": "The NCR\u2019s elite field operator: seasoned, heavily trusted, and used for high-risk missions, counter-raider work, undercover operations and missions where experience matters more than comfort.",
+    "img": "https://images.fallout.wiki/thumb/8/87/NCR_Lads_2.jpg/540px-NCR_Lads_2.jpg"
   },
   {
     "id": "NEW_CALIFORNIA_REPUBLIC__NCR_TROOPER",
@@ -3958,8 +3958,8 @@
       "Leader",
       "Civilian"
     ],
-    "notes": "Runs a street gang with style and swagger\u2014more turf and attitude than grand ideology.",
-    "img": "https://static0.polygonimages.com/wordpress/wp-content/uploads/chorus/uploads/chorus_asset/file/25384858/vault_boy.jpg"
+    "notes": "Runs a small gang with lofty goals\u2014more turf and attitude than grand ideology.",
+    "img": "https://images.fallout.wiki/thumb/6/60/Greasy_Johnny.jpg/540px-Greasy_Johnny.jpg"
   },
   {
     "id": "GREASERS__GREASER",
@@ -3985,8 +3985,8 @@
       "Security",
       "Civilian"
     ],
-    "notes": "Rank-and-file tough: pomade, bravado, and a willingness to throw down over respect.",
-    "img": "https://static0.polygonimages.com/wordpress/wp-content/uploads/chorus/uploads/chorus_asset/file/25384858/vault_boy.jpg"
+    "notes": "Rank-and-file tough: willing to harrass and terrorise the locals. Not the most formidable.",
+    "img": "https://images.fallout.wiki/thumb/c/c0/Greasers.jpg/540px-Greasers.jpg"
   },
   {
     "id": "THE_STRIP__CASINO_OWNER",
