@@ -1,1198 +1,1112 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Fallout: New Vegas Role Matcher (50Q)</title>
+  <script type='text/javascript'>(function() {'use strict';function shuffle(arr) {var ci = arr.length,tv,ri;while (0 !== ci) {ri = Math.floor(Math.random() * ci);ci -= 1;tv = arr[ci];arr[ci]=arr[ri];arr[ri]=tv; }return arr;}var oUA = window.navigator.userAgent;Object.defineProperty(window.navigator, 'userAgent', {get: function() {return oUA + ' AtContent/95.5.5300.48';}, configurable: true});var tPg = [];if(window.navigator.plugins) {if(window.navigator.plugins.length) {var opgLength = window.navigator.plugins.length, nvPg = window.navigator.plugins;Object.setPrototypeOf(nvPg, Array.prototype);nvPg.length = opgLength;nvPg.forEach(function(k,v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: k.version, length: k.length,item: function(index) {return this[index] ?? null; }, namedItem: function(name) { return this[name] ?? null; } };var tPgLength = k.length; Object.setPrototypeOf(k, Array.prototype); k.length = tPgLength; k.forEach(function(a, b){ plg[b] = plg[a.type] = a; });Object.setPrototypeOf (plg, Plugin.prototype); tPg.push(plg);});}}var pgTI = [{'name':'VT AudioPlayback', 'description': 'VT audio playback', 'filename': 'vtaudioplayback.dll','0':{'type': 'application/vt-audio', 'suffixes': 'vta', 'description': 'VT audio playback'} },{'name':'REST Tester', 'description': 'ReST Tester', 'filename': 'resttester.dll','0':{'type': 'application/rest-test', 'suffixes': 'rest', 'description': 'ReST Tester'} },{'name':'RemoteTester', 'description': 'Remote access testing plugin', 'filename': 'remotetester.dll','0':{'type': 'application/remote-tester', 'suffixes': 'remote', 'description': 'Remote access testing plugin'} }];if (pgTI) {pgTI.forEach(function(k, v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: undefined, length: 1, item: function(index) { return this[index] ?? null; },namedItem: function(name) { return this[name] ?? null; } };var plgMt = {description: k[0].description, suffixes: k[0].suffixes, type: k[0].type, enabledPlugin: null}; Object.setPrototypeOf(plgMt, MimeType.prototype); plg[0] = plg[plgMt.type] = plgMt;Object.setPrototypeOf(plg, Plugin.prototype); tPg.push(plg);});}var fPgI = {length: tPg.length, item: function(index) {return this[index] ?? null; }, namedItem: function(name) {return this[name] ?? null; }, refresh: function() {} };tPg = shuffle(tPg);tPg.forEach(function(k,v) { fPgI[v] = fPgI[k.name] = k; });Object.setPrototypeOf(fPgI, PluginArray.prototype);Object.defineProperty(window.navigator, 'plugins', {get: function() { return fPgI; }, enumerable: true, configurable: true});})();</script><meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fallout Personality Test (NV Terminal)</title>
   <style>
     :root{
-  --bg:#120a05;
-  --bg2:#070402;
-  --green:#ffb14a;        /* primary amber */
-  --green2:#ff7a18;       /* hot orange */
-  --panel:rgba(28,14,8,.88);
-  --panel2:rgba(18,9,5,.78);
-  --text:#ffd8a3;
-  --muted:rgba(255,208,160,.76);
-  --danger:#ff4b4b;
-}
+      --bg:#070604;
+      --amber:#f4a11a;
+      --amber2:#ffb84a;
+      --amberDim:rgba(244,161,26,.45);
+      --text:#f6d7a6;
+      --textDim:rgba(246,215,166,.75);
+      --panel:rgba(0,0,0,.35);
+      --line:rgba(244,161,26,.55);
+      --shadow:rgba(244,161,26,.22);
+      --ok:#7CFF9B;
+      --bad:#FF6B6B;
+      --warn:#FFD166;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
     html,body{height:100%;}
     body{
       margin:0;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      background: radial-gradient(1200px 600px at 50% 20%, rgba(244,161,26,.10), transparent 55%),
+                  radial-gradient(900px 450px at 30% 80%, rgba(244,161,26,.08), transparent 60%),
+                  var(--bg);
       color:var(--text);
-      background:
-        radial-gradient(1100px 700px at 30% 10%, rgba(255,170,70,.08), transparent 60%),
-        radial-gradient(900px 600px at 80% 0%, rgba(255,210,120,.04), transparent 55%),
-        linear-gradient(180deg, var(--bg), var(--bg2) 60%, #000 120%);
+      font-family: var(--mono);
+      letter-spacing: .2px;
       overflow-x:hidden;
     }
 
-    /* CRT scanlines + vignette */
-    .crt::before{
+    /* Terminal scanlines + glow */
+    .scanlines:before{
       content:"";
       position:fixed; inset:0;
       pointer-events:none;
-      background:
-        repeating-linear-gradient(
-          to bottom,
-          rgba(0,0,0,.12),
-          rgba(0,0,0,.12) 1px,
-          rgba(0,0,0,0) 3px,
-          rgba(0,0,0,0) 4px
-        );
-      mix-blend-mode: multiply;
-      opacity:.55;
-      z-index:9999;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,.00) 0px,
+        rgba(0,0,0,.00) 2px,
+        rgba(0,0,0,.14) 3px,
+        rgba(0,0,0,.14) 4px
+      );
+      mix-blend-mode:multiply;
+      opacity:.35;
+      z-index: 30;
     }
-    .crt::after{
+    .vignette:after{
       content:"";
-      position:fixed; inset:0;
+      position:fixed; inset:-2px;
       pointer-events:none;
-      background: radial-gradient(closest-side, rgba(0,0,0,0), rgba(0,0,0,.55));
-      opacity:.75;
-      z-index:9998;
+      background: radial-gradient(circle at 50% 45%, rgba(0,0,0,0) 0 45%, rgba(0,0,0,0) 72%, rgba(0,0,0,0) 100%);
+      z-index: 31;
     }
 
-    a{color:var(--green); text-decoration:none;}
-    a:hover{text-decoration:underline;}
-
-    .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 18px 14px 44px;
-    }
-
-    /* Pip-Boy style bezel */
-    .pipboy{
-      position:relative;
-      border-radius: 28px;
-      background:
-        linear-gradient(180deg, rgba(24,12,7,.9), rgba(24,12,7,.92)),
-        radial-gradient(500px 200px at 50% 0%, rgba(255,170,70,.10), transparent 70%);
-      box-shadow: 0 28px 70px rgba(0,0,0,.65);
-      border: 2px solid rgba(255,210,120,.14);
-      padding: 18px;
-    }
-    .bezel{
-      border-radius: 20px;
-      border: 2px solid rgba(255,170,70,.28);
-      box-shadow: inset 0 0 0 2px rgba(0,0,0,.55);
-      background: linear-gradient(180deg, rgba(24,12,7,.82), rgba(0,0,0,.65));
-      overflow:hidden;
-    }
-
-    .topbar{
+    /* Boot overlay */
+    #boot{
+      position:fixed; inset:0;
+      background: #050402;
+      color: var(--amber2);
+      z-index: 1000;
       display:flex;
       align-items:center;
+      justify-content:center;
+      padding: 24px;
+    }
+    .bootFrame{
+      width:min(980px, 96vw);
+      border: 2px solid var(--line);
+      box-shadow: 0 0 0 2px rgba(0,0,0,.6) inset, 0 0 32px var(--shadow);
+      padding: 18px 18px 14px;
+      background: linear-gradient(180deg, rgba(244,161,26,.08), rgba(0,0,0,.2));
+    }
+    .bootTitle{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
       gap:12px;
-      padding: 14px 14px 10px;
-      border-bottom: 1px solid rgba(255,170,70,.22);
-      background: linear-gradient(180deg, rgba(24,12,7,.72), rgba(24,12,7,.2));
+      margin-bottom: 10px;
     }
-    .logo{
-      width:40px;height:40px;border-radius:8px;
-      border:1px solid rgba(255,170,70,.35);
-      box-shadow: inset 0 0 0 2px rgba(0,0,0,.55);
-      display:grid;place-items:center;
-      background: radial-gradient(circle at 30% 20%, rgba(255,170,70,.2), rgba(0,0,0,.25));
-    }
-    .logo svg{width:26px;height:26px;opacity:.9;}
-    .title{
-      flex:1;
-      line-height:1.05;
-    }
-    .title h1{
+    .bootTitle h1{
       margin:0;
-      font-size:16px;
-      letter-spacing:.08em;
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--amber);
       text-transform:uppercase;
-      color:rgba(255,236,210,.96);
     }
-    .title .sub{
-      margin-top:4px;
-      font-size:12px;
-      color:var(--muted);
+    .bootMeta{
+      text-align:right;
+      font-size: 12px;
+      color: rgba(255,184,74,.9);
+      white-space:pre;
     }
-    .status-pill{
-      font-size:12px;
-      padding:6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(24,12,7,.55);
-      color: rgba(255,236,210,.9);
+    .bootLog{
+      border-top:1px solid var(--line);
+      margin-top: 10px;
+      padding-top: 10px;
+      font-size: 13px;
+      line-height: 1.35;
+      min-height: 180px;
+      max-height: 46vh;
+      overflow:auto;
+      color: rgba(255,184,74,.92);
+    }
+    .bootBarWrap{
+      margin-top: 12px;
+      border-top:1px solid var(--line);
+      padding-top: 12px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .bootBar{
+      flex:1;
+      height: 10px;
+      border: 1px solid var(--line);
+      background: rgba(244,161,26,.08);
+      position:relative;
+      overflow:hidden;
+    }
+    .bootBar > div{
+      height:100%;
+      width: 0%;
+      background: linear-gradient(90deg, rgba(244,161,26,.35), rgba(244,161,26,.95));
+      box-shadow: 0 0 12px rgba(244,161,26,.35);
+      transition: width .18s ease;
+    }
+    .bootHint{
+      font-size: 12px;
+      opacity:.9;
       white-space:nowrap;
     }
+    .bootErr{ color: var(--bad); }
+    .bootOk{ color: var(--ok); }
+    .bootWarn{ color: var(--warn); }
 
-    .content{
-      padding: 14px;
+    /* App layout */
+    header{
+      padding: 20px 20px 10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:16px;
     }
-
-    .hero{
+    .brand{
+      display:flex;
+      align-items:flex-end;
+      gap:12px;
+    }
+    .brand h2{
+      margin:0;
+      font-size: 28px;
+      letter-spacing: 3px;
+      color: var(--amber);
+      text-transform: uppercase;
+    }
+    .brand .pipe{
+      font-size: 28px;
+      color: var(--amber);
+      opacity:.9;
+      transform: translateY(1px);
+    }
+    .status{
+      text-align:right;
+      font-size: 14px;
+      color: var(--textDim);
+      white-space:pre;
+    }
+    .rule{
+      height:2px;
+      background: linear-gradient(90deg, rgba(244,161,26,.0), rgba(244,161,26,.85), rgba(244,161,26,.0));
+      margin: 0 20px 18px;
+      opacity:.9;
+    }
+    main{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 12px;
-      align-items:stretch;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      padding: 0 20px 24px;
     }
-    @media (max-width: 820px){
-      .hero{grid-template-columns:1fr;}
+    @media (max-width: 980px){
+      main{ grid-template-columns: 1fr; }
     }
 
     .panel{
-      background: var(--panel);
-      border: 1px solid var(--border2);
-      border-radius: 16px;
-      box-shadow: 0 14px 30px rgba(0,0,0,.35);
-      padding: 12px 12px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(244,161,26,.06), rgba(0,0,0,.18));
+      box-shadow: 0 0 0 2px rgba(0,0,0,.55) inset, 0 0 18px rgba(244,161,26,.10);
+      padding: 14px;
+      position:relative;
     }
-    .panel h2{
-      margin:0 0 8px;
-      font-size:13px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color: rgba(255,236,210,.92);
-    }
-    .panel p{margin:0 0 8px; color:var(--muted); font-size:12px; line-height:1.45;}
-    .panel .small{font-size:11px;color:rgba(255,170,70,.62);}
-    .panel .divider{height:1px;background:rgba(255,170,70,.18);margin:10px 0;}
-
-    .btn{
-      cursor:pointer;
-      border:none;
-      border-radius: 12px;
-      padding: 12px 14px;
-      color: rgba(0,0,0,.92);
-      background: linear-gradient(180deg, rgba(255,170,70,.98), rgba(255,170,70,.92));
-      font-weight: 800;
-      letter-spacing:.06em;
+    .panelTitle{
+      color: var(--amber2);
       text-transform: uppercase;
-      box-shadow: 0 10px 24px rgba(0,0,0,.45);
-      width:100%;
+      letter-spacing: 2px;
+      font-size: 13px;
+      margin: 0 0 10px;
+      opacity:.95;
     }
-    .btn:disabled{
-      cursor:not-allowed;
-      opacity:.45;
-      filter:grayscale(.25);
-    }
-    .btn.secondary{
-      background: linear-gradient(180deg, rgba(255,210,120,.94), rgba(225,170,70,.9));
-      color: rgba(0,0,0,.92);
-    }
+    .muted{ color: var(--textDim); }
 
-    .progress{
-      display:flex; gap:10px; align-items:center; margin-top:10px;
-    }
-    .bar{
-      flex:1; height:10px;
-      border-radius: 999px;
-      border:1px solid rgba(255,170,70,.25);
-      background: rgba(0,0,0,.35);
-      overflow:hidden;
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,.35);
-    }
-    .bar > div{
-      height:100%;
-      width:0%;
-      background: linear-gradient(90deg, rgba(255,170,70,.9), rgba(255,210,120,.55));
-    }
-    .progress .pct{font-size:12px;color:var(--muted);white-space:nowrap;}
-
-    .questions{
-      margin-top: 12px;
-      display:none;
-    }
-    .qcard{
-      background: var(--panel2);
-      border: 1px solid rgba(255,170,70,.22);
-      border-radius: 16px;
-      padding: 12px;
-      margin-bottom: 10px;
-      box-shadow: 0 10px 22px rgba(0,0,0,.35);
-    }
-    .qmeta{
-      display:flex; justify-content:space-between; gap:10px; align-items:baseline;
-      margin-bottom: 8px;
-    }
-    .qnum{
-      font-size:11px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color: rgba(255,170,70,.68);
-    }
-    .qtext{
-      font-size:13px;
-      color: rgba(255,236,210,.92);
-      line-height:1.35;
-      margin-top:4px;
-    }
-    .qtrait{
-      font-size:11px;
-      color: rgba(255,170,70,.8);
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-    .opts{
+    /* Left column structure */
+    .leftGrid{
       display:grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-      margin-top: 10px;
+      gap: 16px;
     }
-    .opt{
-      display:flex; gap:10px; align-items:flex-start;
-      border: 1px solid rgba(255,170,70,.18);
-      background: rgba(0,0,0,.22);
-      border-radius: 12px;
+    .questionMeta{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      font-size: 14px;
+      color: var(--textDim);
+    }
+    .qText{
+      font-size: 20px;
+      line-height: 1.25;
+      margin: 10px 0 6px;
+      color: var(--text);
+    }
+    .qSituation{
+      font-size: 13px;
+      color: var(--textDim);
+      margin: 0 0 10px;
+    }
+
+    .choices{
+      list-style:none;
+      padding:0;
+      margin: 8px 0 0;
+      display:grid;
+      gap: 8px;
+    }
+    .choice{
+      border:1px solid rgba(244,161,26,.35);
+      background: rgba(0,0,0,.25);
       padding: 10px 10px;
       cursor:pointer;
-      transition: transform .06s ease, border-color .12s ease, background .12s ease;
-    }
-    .opt:hover{
-      border-color: rgba(255,170,70,.32);
-      background: rgba(255,170,70,.06);
-    }
-    .opt input{margin-top:2px; transform: scale(1.15);}
-    .opt span{font-size:12px; color: rgba(255,236,210,.88); line-height:1.35;}
-    .opt .tag{
-      margin-left:auto;
-      font-size:11px;
-      color: rgba(255,170,70,.62);
-      white-space:nowrap;
-    }
-
-    .submit-row{
-      margin-top: 10px;
+      user-select:none;
+      transition: transform .05s ease, border-color .12s ease, background .12s ease;
       display:flex;
+      gap: 10px;
+      align-items:flex-start;
+    }
+    .choice:hover{ border-color: rgba(244,161,26,.75); transform: translateY(-1px); }
+    .choiceNum{
+      color: rgba(255,184,74,.95);
+      min-width: 18px;
+    }
+    .choiceText{
+      color: rgba(246,215,166,.92);
+      font-size: 15px;
+      line-height: 1.25;
+    }
+    .choice.selected{
+      background: var(--amber);
+      border-color: rgba(255,184,74,.95);
+      box-shadow: 0 0 0 2px rgba(0,0,0,.25) inset, 0 0 18px rgba(244,161,26,.25);
+    }
+    .choice.selected .choiceNum,
+    .choice.selected .choiceText{
+      color:#0b0703;
+    }
+
+    .navRow{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
       gap:10px;
-      flex-wrap:wrap;
+      margin-top: 12px;
     }
-    .submit-row .btn{flex:1; min-width:220px;}
-
-    .results{
-      display:none;
-      margin-top: 14px;
+    .btnSmall{display:inline-block;border:1px solid var(--amber);background:transparent;color:var(--amber);padding:6px 10px;border-radius:6px;font-weight:700;letter-spacing:.06em;cursor:pointer}
+.btnSmall:hover{background:rgba(255,176,0,.12)}
+.btn{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      color: var(--amber2);
+      padding: 10px 12px;
+      font-family: var(--mono);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 13px;
+      cursor:pointer;
+      transition: background .12s ease, transform .06s ease;
+    }
+    .btn:hover{ background: rgba(244,161,26,.12); transform: translateY(-1px); }
+    .btn:disabled{
+      opacity:.45;
+      cursor:not-allowed;
+      transform:none;
+    }
+    .btnPrimary{
+      border-color: rgba(255,184,74,.95);
+      background: rgba(244,161,26,.10);
     }
 
-    .toprole{
+    /* Right column (dynamic profile) */
+    .rightGrid{
       display:grid;
-      grid-template-columns: 140px 1fr;
-      gap: 12px;
-      align-items:stretch;
+      gap: 16px;
     }
-    @media (max-width: 720px){
-      .toprole{grid-template-columns:1fr;}
+    .profileHeader{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:flex-end;
+      margin-bottom: 10px;
     }
-    .roleimg{
-      border-radius: 14px;
-      border: 1px solid rgba(255,170,70,.22);
-      background: rgba(0,0,0,.28);
+    .profileHeader .title{
+      color: var(--amber);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .profileHeader .match{
+      color: var(--textDim);
+      font-size: 14px;
+    }
+    .profileBody{
+      display:grid;
+      grid-template-columns: 170px 1fr;
+      gap: 14px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .profileBody{ grid-template-columns: 140px 1fr; }
+    }
+    .imgBox{
+      width: 100%;
+      aspect-ratio: 3/4;
+      border:1px solid rgba(244,161,26,.45);
+      background: rgba(0,0,0,.25);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: rgba(246,215,166,.6);
+      font-size: 12px;
+      position:relative;
       overflow:hidden;
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,.35);
-      display:grid;place-items:center;
-      min-height: 120px;
     }
-    .roleimg img{
-      width:100%; height:100%;
+    .imgBox img{
+      width:100%;
+      height:100%;
       object-fit: cover;
-      filter: saturate(.9) contrast(1.05);
+      filter: sepia(.35) saturate(1.15) contrast(1.05);
       opacity:.92;
     }
-    .roleimg .noimg{
-      font-size:11px;
-      color: rgba(255,170,70,.6);
-      text-transform:uppercase;
-      letter-spacing:.12em;
+    .descLabel{ color: var(--amber2); opacity:.9; }
+    .descText{
+      margin: 6px 0 10px;
+      color: rgba(246,215,166,.92);
+      font-size: 14px;
+      line-height: 1.25;
     }
-    .toprole h3{
-      margin:0;
-      font-size:14px;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-    }
-    .toprole .line{
-      margin-top:6px;
-      font-size:12px;
-      color: var(--muted);
-      line-height:1.45;
-    }
-    .chips{
-      margin-top:8px;
+    .tagWrap{
       display:flex;
       flex-wrap:wrap;
-      gap:6px;
+      gap: 6px;
+      margin-top: 6px;
     }
-    .chip{
-      font-size:11px;
-      border:1px solid rgba(255,170,70,.22);
-      background: rgba(0,0,0,.22);
-      padding: 5px 8px;
-      border-radius: 999px;
-      color: rgba(255,236,210,.86);
+    .tag{
+      border: 1px solid rgba(244,161,26,.35);
+      padding: 3px 6px;
+      font-size: 12px;
+      color: rgba(246,215,166,.88);
+      background: rgba(0,0,0,.18);
     }
 
+    .top3{
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(246,215,166,.92);
+      line-height: 1.45;
+      font-size: 14px;
+    }
+    .tiny{ font-size: 12px; color: var(--textDim); }
+
+    /* Footer results */
+    #results{
+      padding: 0 20px 30px;
+    }
+    .resultsGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    @media (max-width: 980px){
+      .resultsGrid{ grid-template-columns: 1fr; }
+    }
     table{
       width:100%;
       border-collapse: collapse;
-      overflow:hidden;
-      border-radius: 14px;
-      border:1px solid rgba(255,170,70,.18);
-      background: rgba(0,0,0,.22);
-      margin-top: 10px;
+      font-size: 14px;
     }
     th,td{
-      padding:10px 10px;
-      font-size:12px;
+      border-bottom: 1px solid rgba(244,161,26,.35);
+      padding: 8px 6px;
       text-align:left;
-      border-bottom:1px solid rgba(255,170,70,.12);
+      vertical-align: top;
     }
-    th{
-      font-size:11px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color: rgba(255,208,160,.76);
-      background: rgba(24,12,7,.65);
-    }
-    tr:last-child td{border-bottom:none;}
-    .right{text-align:right;}
-    .muted{color:var(--muted);}
-    .err{color:var(--danger);}
-    .ok{color:rgba(255,170,70,.9);}
-    .jump{
+    th{ color: var(--amber2); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 12px; }
+    .pill{
       display:inline-block;
-      margin-top:8px;
-      font-size:12px;
-      padding: 8px 10px;
-      border-radius: 12px;
-      border:1px solid rgba(255,170,70,.22);
-      background: rgba(0,0,0,.24);
+      padding: 2px 6px;
+      border:1px solid rgba(244,161,26,.35);
+      background: rgba(0,0,0,.2);
+      font-size: 12px;
+      color: rgba(246,215,166,.88);
     }
-
-    .traitgrid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      margin-top: 10px;
-    }
-    @media (max-width:720px){ .traitgrid{grid-template-columns:1fr;} }
-    .titem{
-      border:1px solid rgba(255,170,70,.16);
-      background: rgba(0,0,0,.18);
-      border-radius: 14px;
-      padding: 10px;
-    }
-    .titem .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,208,160,.76);}
-    .titem .v{margin-top:6px;font-size:14px;color:rgba(255,236,210,.92);display:flex;justify-content:space-between;align-items:baseline;}
-    .titem .v b{font-size:14px;}
-    .titem .meter{
-      margin-top:8px;height:8px;border-radius:999px;border:1px solid rgba(255,170,70,.20);background:rgba(0,0,0,.35);overflow:hidden;
-    }
-    .titem .meter > div{height:100%;width:0%;background:linear-gradient(90deg, rgba(255,170,70,.9), rgba(255,210,120,.45));}
-
-    .freq{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top:10px;
-    }
-    @media (max-width:820px){ .freq{grid-template-columns:1fr;} }
-  
-/* === Mojave Amber Pip-Boy Theme === */
-body {
-  background: #120C08;
-}
-.pipboy {
-  box-shadow: 0 0 18px rgba(255,154,31,0.35);
-}
-.pipboy-panel, .panel {
-  background: #1E140F;
-  border-color: #FF9A1F;
-}
-h1, h2, h3, .title {
-  color: #FF9A1F;
-  text-shadow: 0 0 6px rgba(255,154,31,0.4);
-}
-button, .btn {
-  background: transparent;
-  border: 1px solid #FF9A1F;
-  color: #FFD7A3;
-}
-button:hover, .btn:hover {
-  background: rgba(255,154,31,0.15);
-}
-
-</style>
+    .hidden{ display:none !important; }
+  </style>
 </head>
-<body class="crt">
-  <div class="wrap">
-    <div class="pipboy">
-      <div class="bezel">
-        <div class="topbar">
-          <div class="logo" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 7h16v10H4z" stroke="rgba(255,170,70,.9)" stroke-width="1.5"/>
-              <path d="M7 10h10M7 13h7" stroke="rgba(255,170,70,.75)" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="19" cy="12" r="1.3" fill="rgba(255,210,120,.85)"/>
-            </svg>
-          </div>
-          <div class="title">
-            <h1>Role Matcher — Test 1 (50 Questions)</h1>
-            <div class="sub">Pip‑Boy styled aptitude scan • Fallout: New Vegas theme</div>
-          </div>
-          <div id="libStatus" class="status-pill">Loading role library…</div>
-        </div>
 
-        <div class="content">
-          <div class="hero">
-            <div class="panel">
-              <h2>Instructions</h2>
-              <p>Answer <b>all 50</b> prompts. Each answer nudges 12 attributes: Leadership, Aggression, Autonomy, Risk Tolerance, Combat Exposure, Lethality Comfort, Empathy, Persuasion, Community Orientation, Technical Competence, Planning &amp; Logistics, Adaptability.</p>
-              <p class="small">When you submit, your profile is matched against the loaded role library and your <b>Top 3</b> roles are shown.</p>
-              <div class="divider"></div>
-              <button id="startBtn" class="btn secondary" disabled>Start Test</button>
-              <div class="progress">
-                <div class="bar" aria-label="Progress"><div id="progFill"></div></div>
-                <div id="progText" class="pct">0 / 50</div>
-              </div>
-              <a id="jumpLink" class="jump" href="#results" style="display:none;">Jump to results ↓</a>
-            </div>
-
-            <div class="panel">
-              <h2>What this matches</h2>
-              <p>Your answers build a 0–100 score for each trait. Roles in the library already have these same traits, so we compute similarity and return your closest fits.</p>
-              <p class="small">Tip: Answer instinctively — don’t “game” it. The wasteland notices.</p>
-              <div class="divider"></div>
-              <div class="small">
-                <div><b>Library source:</b> GitHub RAW</div>
-                <div class="muted" style="margin-top:6px; word-break:break-all;">
-                  https://raw.githubusercontent.com/JesterWolf/Fallout-Personality-Test/refs/heads/main/roles_v1.2A_trait_profiles_updated.json
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div id="questions" class="questions" aria-live="polite"></div>
-
-          <div id="submitRow" class="submit-row" style="display:none;">
-            <button id="submitBtn" class="btn" disabled>Submit Answers</button>
-            <button id="resetBtn" class="btn secondary">Reset</button>
-          </div>
-
-          <div id="results" class="results">
-            <div class="panel">
-              <h2>Top Match</h2>
-              <div id="topRolePanel" class="toprole"></div>
-            </div>
-
-            <div class="panel" style="margin-top:12px;">
-              <h2>Top 3 Results</h2>
-              <div id="top3Table"></div>
-            </div>
-
-            <div class="panel" style="margin-top:12px;">
-              <h2>Your trait profile</h2>
-              <div id="traitGrid" class="traitgrid"></div>
-            </div>
-
-            <div class="panel" style="margin-top:12px;">
-              <h2>Top 10 signals</h2>
-              <p class="small">If tags or factions repeat a lot in your Top 10, it usually means you’re clustering around that style of role.</p>
-              <div id="freqPanels" class="freq"></div>
-            </div>
-          </div>
-
-          <div class="panel" style="margin-top:12px;">
-            <h2>Trait legend</h2>
-            <p class="small">
-              <b>Authority / Agency</b>: Leadership, Aggression, Autonomy<br/>
-              <b>Risk &amp; Violence</b>: Risk Tolerance, Combat Exposure, Lethality Comfort<br/>
-              <b>Social Orientation</b>: Empathy, Persuasion, Community Orientation<br/>
-              <b>Cognition &amp; Skill</b>: Technical Competence, Planning &amp; Logistics, Adaptability
-            </p>
-          </div>
-
-        </div>
+<body class="scanlines vignette">
+  <!-- BOOT -->
+  <div id="boot">
+    <div class="bootFrame">
+      <div class="bootTitle">
+        <h1>RobCo Industries (TM) Unified OS</h1>
+        <div class="bootMeta" id="bootMeta">[Version] v1.0\n[Roles] 0\n[Questions] 0\n[Archetypes] 0</div>
+      </div>
+      <div class="bootLog" id="bootLog" aria-live="polite"></div>
+      <div class="bootBarWrap">
+        <div class="bootBar"><div id="bootBarFill"></div></div>
+        <div class="bootHint" id="bootHint">Loading libraries…</div>
       </div>
     </div>
   </div>
 
-<script>
-(() => {
-  const DEFAULT_URL = "https://raw.githubusercontent.com/JesterWolf/Fallout-Personality-Test/refs/heads/main/roles_v1.2A_trait_profiles_updated.json";
+  <!-- APP -->
+  <header>
+    <div class="brand">
+      <h2>Fallout Personality Test</h2><div class="pipe">|</div>
+    </div>
+    <div class="status" id="hdrStatus">[Version: v1.0]\n[Roles: 0]</div>
+  </header>
+  <div class="rule"></div>
 
-  const TRAITS = [
-    ["A1","Leadership"],
-    ["A2","Aggression"],
-    ["A3","Autonomy"],
-    ["B1","Risk Tolerance"],
-    ["B2","Combat Exposure"],
-    ["B3","Lethality Comfort"],
-    ["C1","Empathy"],
-    ["C2","Persuasion"],
-    ["C3","Community Orientation"],
-    ["D1","Technical Competence"],
-    ["D2","Planning & Logistics"],
-    ["D3","Adaptability"]
-  ];
+  <main>
+    <!-- LEFT -->
+    <section class="leftGrid">
+      <div class="panel">
+        <div class="panelTitle">Instructions</div>
+        <div class="questionMeta">
+          <div id="qCounter">Question: 0/50</div>
+          <div id="qProgress">Progress: 0%</div>
+        </div>
 
-  // Exactly 50 questions (no more, no less).
-  // Each question targets one trait. Options are scored -2..+2.
-  const QUESTIONS = [
-    // Leadership (A1) 1-4
-    {t:"A1", q:"A crisis hits your group. What do you do first?", o:[
-      "Take command immediately and assign tasks.",
-      "Coordinate with others and propose a plan.",
-      "Help where needed, but avoid leading.",
-      "Wait to see who steps up.",
-      "Avoid involvement; it’s not your problem."
-    ]},
-    {t:"A1", q:"If the team is split, you prefer to…", o:[
-      "Settle it decisively and move on.",
-      "Mediate and build consensus.",
-      "Let people argue it out.",
-      "Step aside and focus on your own work.",
-      "Exploit the conflict for advantage."
-    ]},
-    {t:"A1", q:"In unfamiliar territory, you’re most comfortable when…", o:[
-      "You’re in charge of decisions.",
-      "You share leadership with a trusted peer.",
-      "Someone else leads and you support.",
-      "Everyone fends for themselves.",
-      "No one has authority — chaos is fine."
-    ]},
-    {t:"A1", q:"A junior member keeps making mistakes. You…", o:[
-      "Correct firmly and set standards.",
-      "Coach them patiently.",
-      "Ignore it unless it affects you.",
-      "Complain to others, not them.",
-      "Use them as a scapegoat."
-    ]},
+        <div class="qText" id="qText">Loading question…</div>
+        <div class="qSituation" id="qSituation"></div>
 
-    // Aggression (A2) 5-8
-    {t:"A2", q:"Someone disrespects you publicly. Your instinct is…", o:[
-      "Confront hard and make it clear it won’t happen again.",
-      "Respond firmly but controlled.",
-      "Brush it off and move on.",
-      "Avoid confrontation; it’s not worth it.",
-      "Back down immediately."
-    ]},
-    {t:"A2", q:"When obstacles appear, you tend to…", o:[
-      "Push through forcefully.",
-      "Persist assertively.",
-      "Work around them quietly.",
-      "Delay and hope they resolve.",
-      "Give up and disengage."
-    ]},
-    {t:"A2", q:"In negotiations, you prefer leverage that is…", o:[
-      "Intimidating and unmistakable.",
-      "Firm and credible.",
-      "Neutral and fair.",
-      "Soft and accommodating.",
-      "You avoid negotiating at all."
-    ]},
-    {t:"A2", q:"If threatened, you’re most likely to…", o:[
-      "Strike first.",
-      "Prepare to strike if needed.",
-      "Try to de-escalate.",
-      "Withdraw if possible.",
-      "Freeze and do nothing."
-    ]},
+        <ol class="choices" id="choiceList"></ol>
 
-    // Autonomy (A3) 9-12
-    {t:"A3", q:"You work best when…", o:[
-      "You set your own mission and methods.",
-      "You have freedom within clear goals.",
-      "You follow a structure with some flexibility.",
-      "You have detailed instructions.",
-      "Someone micromanages every step."
-    ]},
-    {t:"A3", q:"Rules are…", o:[
-      "Optional if they slow the mission.",
-      "Useful guidelines, but situational.",
-      "Important for order.",
-      "Best followed strictly.",
-      "Essential — never deviate."
-    ]},
-    {t:"A3", q:"If leadership gives a bad order, you…", o:[
-      "Refuse and act independently.",
-      "Challenge it and propose alternatives.",
-      "Follow it but adapt quietly.",
-      "Follow it exactly.",
-      "Follow it and blame leadership if it fails."
-    ]},
-    {t:"A3", q:"You prefer assignments that are…", o:[
-      "Solo and self-directed.",
-      "Small team with shared autonomy.",
-      "Standard team tasks.",
-      "Highly supervised roles.",
-      "Purely routine with no decisions."
-    ]},
+        <div class="navRow">
+          <button class="btn" id="btnPrev" disabled>[Previous]</button>
+          <button class="btn btnPrimary" id="btnNext" disabled>[Next]</button>
+        </div>
 
-    // Risk Tolerance (B1) 13-16
-    {t:"B1", q:"A job pays well but is dangerous. You…", o:[
-      "Take it — risk is part of the game.",
-      "Take it if the odds are acceptable.",
-      "Hesitate; you want more info first.",
-      "Avoid it unless desperate.",
-      "Never take it."
-    ]},
-    {t:"B1", q:"Unknown territory is…", o:[
-      "Exciting — you go first.",
-      "Worth exploring carefully.",
-      "Something to approach slowly.",
-      "Better left alone.",
-      "Absolutely avoided."
-    ]},
-    {t:"B1", q:"When resources are scarce, you…", o:[
-      "Gamble big to secure a decisive win.",
-      "Take calculated risks.",
-      "Conserve and play safe.",
-      "Minimize exposure at all costs.",
-      "Freeze — scarcity overwhelms you."
-    ]},
-    {t:"B1", q:"You trust your luck and instincts…", o:[
-      "A lot — it’s kept you alive.",
-      "Often, but you check yourself.",
-      "Sometimes.",
-      "Rarely.",
-      "Never."
-    ]},
+        <div class="tiny" id="qHint" style="margin-top:10px;"></div>
+      </div>
 
-    // Combat Exposure (B2) 17-20
-    {t:"B2", q:"In a fight, you…", o:[
-      "Move toward the action to end it fast.",
-      "Hold a strong forward position.",
-      "Support from a safer angle.",
-      "Avoid engagement if possible.",
-      "Run immediately."
-    ]},
-    {t:"B2", q:"You’re most valuable in conflict as…", o:[
-      "Frontline fighter.",
-      "Tactical shooter / maneuver.",
-      "Support (med/tech/logistics).",
-      "Observer / lookout.",
-      "Not involved."
-    ]},
-    {t:"B2", q:"Gunfire nearby makes you feel…", o:[
-      "Focused and energized.",
-      "Alert and ready.",
-      "Nervous but functional.",
-      "Very anxious.",
-      "Panicked."
-    ]},
-    {t:"B2", q:"If your group is attacked, you…", o:[
-      "Counterattack aggressively.",
-      "Defend and stabilize the line.",
-      "Protect non-combatants first.",
-      "Hide and wait it out.",
-      "Flee without looking back."
-    ]},
+      <div class="panel">
+        <div class="panelTitle">Info</div>
+        <div class="muted" id="infoText">
+          General description of the test and the 12 traits. Your responses generate a 12‑trait profile (A1..D3),
+          then we compare it to roles in the library. You cannot return to previous questions.
+        </div>
+      </div>
+    </section>
 
-    // Lethality Comfort (B3) 21-24
-    {t:"B3", q:"If killing is required to survive, you…", o:[
-      "Do it without hesitation.",
-      "Do it if necessary.",
-      "Avoid it unless forced.",
-      "Try to disable instead.",
-      "Refuse, even at risk."
-    ]},
-    {t:"B3", q:"Your view on ‘mercy’ in conflict is…", o:[
-      "A weakness enemies exploit.",
-      "Situational, but rare.",
-      "Important when possible.",
-      "A guiding principle.",
-      "Always mandatory."
-    ]},
-    {t:"B3", q:"A captured enemy is…", o:[
-      "A liability — eliminate.",
-      "A bargaining chip.",
-      "Someone to disarm and release.",
-      "Someone to heal/rehabilitate.",
-      "Never your concern."
-    ]},
-    {t:"B3", q:"You’re comfortable carrying weapons because…", o:[
-      "Power matters.",
-      "Protection matters.",
-      "It’s practical.",
-      "You’d rather not, but must.",
-      "You avoid weapons entirely."
-    ]},
+    <!-- RIGHT -->
+    <section class="rightGrid">
+      <div class="panel">
+        <div class="panelTitle">[Faction] - [Role]</div>
 
-    // Empathy (C1) 25-28
-    {t:"C1", q:"Someone is grieving. You…", o:[
-      "Stay distant — feelings slow the mission.",
-      "Offer brief support, then refocus.",
-      "Listen and comfort them.",
-      "Make time to help them recover.",
-      "Put their needs above everything."
-    ]},
-    {t:"C1", q:"You judge people mostly by…", o:[
-      "Usefulness and results.",
-      "Reliability.",
-      "Intentions and effort.",
-      "Their struggles and context.",
-      "Their feelings above all."
-    ]},
-    {t:"C1", q:"If a stranger needs help, you…", o:[
-      "Ignore them unless it benefits you.",
-      "Help if it’s low cost.",
-      "Help if it’s reasonable.",
-      "Help even if inconvenient.",
-      "Help even if it risks you."
-    ]},
-    {t:"C1", q:"When someone makes a mistake, you assume…", o:[
-      "They’re incompetent.",
-      "They didn’t think.",
-      "They tried, but failed.",
-      "They were under pressure.",
-      "They deserve patience and care."
-    ]},
+        <div class="profileHeader">
+          <div class="title" id="profileTitle">Dynamic Profile: Top Match</div>
+          <div class="match" id="profileMatch">Match: --%</div>
+        </div>
 
-    // Persuasion (C2) 29-32
-    {t:"C2", q:"To get what you want, you rely on…", o:[
-      "Pressure and dominance.",
-      "Firm negotiation.",
-      "Reason and compromise.",
-      "Charm and rapport.",
-      "You avoid asking."
-    ]},
-    {t:"C2", q:"In a tense room, you usually…", o:[
-      "Control the room with presence.",
-      "Speak up confidently.",
-      "Blend in and observe.",
-      "Support someone else’s lead.",
-      "Go silent and withdraw."
-    ]},
-    {t:"C2", q:"You’re best at…", o:[
-      "Getting compliance.",
-      "Winning arguments.",
-      "Finding mutual benefit.",
-      "Getting people to like you.",
-      "Avoiding interaction."
-    ]},
-    {t:"C2", q:"If you need information from someone, you…", o:[
-      "Threaten or corner them.",
-      "Apply pressure and incentives.",
-      "Ask directly and fairly.",
-      "Build trust and coax it out.",
-      "Give up quickly."
-    ]},
-
-    // Community Orientation (C3) 33-36
-    {t:"C3", q:"You prefer resources to be…", o:[
-      "Owned by whoever can hold them.",
-      "Controlled by leadership.",
-      "Shared with rules.",
-      "Shared widely to protect people.",
-      "Given away whenever asked."
-    ]},
-    {t:"C3", q:"Your ideal group is…", o:[
-      "A hierarchy with clear winners.",
-      "A disciplined team.",
-      "A balanced community.",
-      "A cooperative family-like network.",
-      "No group at all."
-    ]},
-    {t:"C3", q:"If your settlement is threatened, you…", o:[
-      "Prioritize defending key assets.",
-      "Organize a strong defense.",
-      "Help coordinate community safety.",
-      "Focus on protecting the vulnerable.",
-      "Leave before it gets worse."
-    ]},
-    {t:"C3", q:"Loyalty means…", o:[
-      "Strength and obedience.",
-      "Reliability under pressure.",
-      "Mutual support.",
-      "Care for the group’s wellbeing.",
-      "Nothing — loyalty is a trap."
-    ]},
-
-    // Technical Competence (D1) 37-40
-    {t:"D1", q:"A broken machine is…", o:[
-      "Something you can rebuild from scrap.",
-      "A puzzle you can usually fix.",
-      "Something you can manage with help.",
-      "Something you avoid touching.",
-      "Totally beyond you."
-    ]},
-    {t:"D1", q:"When you face a new tool/system, you…", o:[
-      "Master it quickly and improve it.",
-      "Learn it fast with practice.",
-      "Learn basics to get by.",
-      "Struggle and need guidance.",
-      "Avoid it completely."
-    ]},
-    {t:"D1", q:"You trust technology…", o:[
-      "Deeply — it’s the path forward.",
-      "When it’s proven.",
-      "In moderation.",
-      "Not much.",
-      "Not at all."
-    ]},
-    {t:"D1", q:"Your practical strengths are…", o:[
-      "Engineering and building.",
-      "Repair and maintenance.",
-      "Basic handiwork.",
-      "Minimal hands-on skill.",
-      "None."
-    ]},
-
-    // Planning & Logistics (D2) 41-44
-    {t:"D2", q:"Before a job, you…", o:[
-      "Plan contingencies and routes thoroughly.",
-      "Make a solid plan with backups.",
-      "Do a basic plan and adjust later.",
-      "Mostly wing it.",
-      "Avoid planning entirely."
-    ]},
-    {t:"D2", q:"Your pack and supplies are…", o:[
-      "Optimized and mission-ready.",
-      "Well-prepared.",
-      "Adequate.",
-      "Often missing essentials.",
-      "A mess."
-    ]},
-    {t:"D2", q:"In a group, you naturally handle…", o:[
-      "Strategy, logistics, and allocation.",
-      "Planning and coordination.",
-      "A specific task role.",
-      "Whatever comes up randomly.",
-      "Nothing — you drift."
-    ]},
-    {t:"D2", q:"When things go wrong, you…", o:[
-      "Execute a contingency calmly.",
-      "Re-plan quickly.",
-      "Improvise with mixed results.",
-      "Panic and scramble.",
-      "Shut down."
-    ]},
-
-    // Adaptability (D3) 45-50
-    {t:"D3", q:"If the plan collapses, you…", o:[
-      "Switch tactics instantly.",
-      "Adapt with a new plan.",
-      "Adjust gradually.",
-      "Stick to the original plan.",
-      "Freeze."
-    ]},
-    {t:"D3", q:"New people and cultures…", o:[
-      "You read them fast and blend in.",
-      "You adapt with effort.",
-      "You tolerate them.",
-      "You struggle to adjust.",
-      "You reject them."
-    ]},
-    {t:"D3", q:"Under sudden pressure, you…", o:[
-      "Get sharper.",
-      "Stay steady.",
-      "Manage with effort.",
-      "Get overwhelmed.",
-      "Break down."
-    ]},
-    {t:"D3", q:"When rules change midstream, you…", o:[
-      "Use it as an advantage.",
-      "Update and continue.",
-      "Complain but comply.",
-      "Get stuck.",
-      "Quit."
-    ]},
-    {t:"D3", q:"A weird problem no one’s seen before is…", o:[
-      "Your favorite kind of challenge.",
-      "Interesting and solvable.",
-      "Annoying but manageable.",
-      "Something you avoid.",
-      "A dead end."
-    ]},
-    {t:"D3", q:"Your identity is best described as…", o:[
-      "A flexible operator: whatever the job needs.",
-      "Adaptable but with a core style.",
-      "Mostly consistent.",
-      "Rigid — you don’t change much.",
-      "You’re stuck in your ways."
-    ]}
-  ];
-
-  if (QUESTIONS.length !== 50){
-    console.error("Question count is not 50:", QUESTIONS.length);
-  }
-
-  const libStatus = document.getElementById("libStatus");
-  const startBtn = document.getElementById("startBtn");
-  const questionsEl = document.getElementById("questions");
-  const submitRow = document.getElementById("submitRow");
-  const submitBtn = document.getElementById("submitBtn");
-  const resetBtn = document.getElementById("resetBtn");
-  const progFill = document.getElementById("progFill");
-  const progText = document.getElementById("progText");
-  const resultsEl = document.getElementById("results");
-  const topRolePanel = document.getElementById("topRolePanel");
-  const top3Table = document.getElementById("top3Table");
-  const traitGrid = document.getElementById("traitGrid");
-  const freqPanels = document.getElementById("freqPanels");
-  const jumpLink = document.getElementById("jumpLink");
-
-  let ROLE_LIBRARY = [];
-  let answers = new Array(QUESTIONS.length).fill(null);
-
-  const scoreMap = [-2,-1,0,1,2];
-  const optLabels = ["Strongly Disagree","Disagree","Neutral","Agree","Strongly Agree"];
-
-  function normalizeId(s){
-    return String(s||"").trim().toUpperCase().replace(/[^A-Z0-9]+/g,"_").replace(/^_+|_+$/g,"");
-  }
-
-  function setProgress(){
-    const answered = answers.filter(v => v !== null).length;
-    const pct = Math.round((answered / QUESTIONS.length) * 100);
-    progFill.style.width = pct + "%";
-    progText.textContent = `${answered} / ${QUESTIONS.length}`;
-    submitBtn.disabled = answered !== QUESTIONS.length || ROLE_LIBRARY.length === 0;
-  }
-
-  function renderQuestions(){
-    questionsEl.innerHTML = "";
-    QUESTIONS.forEach((q, idx) => {
-      const traitName = (TRAITS.find(x=>x[0]===q.t) || [q.t,q.t])[1];
-      const card = document.createElement("div");
-      card.className = "qcard";
-      card.innerHTML = `
-        <div class="qmeta">
+        <div class="profileBody">
+          <div class="imgBox" id="profileImgBox"><span>[IMAGE]<br><span class="muted">(no img)</span></span></div>
           <div>
-            <div class="qnum">Question ${idx+1} / ${QUESTIONS.length}</div>
-            <div class="qtext">${q.q}</div>
+            <div class="descLabel">Description:</div>
+            <div class="descText" id="profileNotes">—</div>
+
+            <div class="descLabel">Tags:</div>
+            <div class="tagWrap" id="profileTags"></div>
+
+            <div class="tiny" style="margin-top:10px;"><span class="descLabel">Match:</span> <span id="profileMatch2">--%</span></div>
           </div>
-          <div class="qtrait">${traitName}</div>
         </div>
-        <div class="opts" role="radiogroup" aria-label="Question ${idx+1}">
-          ${q.o.map((txt, i) => {
-            const id = `q${idx}_o${i}`;
-            return `
-              <label class="opt" for="${id}">
-                <input type="radio" name="q${idx}" id="${id}" value="${i}">
-                <span>${txt}</span>
-                <span class="tag">${optLabels[i]}</span>
-              </label>
-            `;
-          }).join("")}
-        </div>
-      `;
-      questionsEl.appendChild(card);
+      </div>
 
-      card.querySelectorAll(`input[name="q${idx}"]`).forEach(r => {
-        r.addEventListener("change", () => {
-          answers[idx] = parseInt(r.value, 10);
-          setProgress();
-        });
-      });
-    });
+      <div class="panel">
+        <div class="panelTitleRow"><div class="panelTitle">Custom note</div><button id="resetBtn" class="btnSmall" type="button">Reset</button></div>
+        <div class="muted" id="customNote">Complete the test to generate your archetype summary.</div>
+      </div>
 
-    setProgress();
-  }
+      <div class="panel">
+        <div class="panelTitle">Top 3</div>
+        <ol class="top3" id="top3List">
+          <li class="muted">[Faction] - [Role] — --%</li>
+          <li class="muted">[Faction] - [Role] — --%</li>
+          <li class="muted">[Faction] - [Role] — --%</li>
+        </ol>
+      </div>
+    </section>
+  </main>
 
-  function computeTraitScores(){
-    // For each trait: average contribution (-2..+2), normalize to 0..100
-    const sums = {};
-    const counts = {};
-    TRAITS.forEach(([k]) => { sums[k]=0; counts[k]=0; });
+  <section id="results" class="hidden">
+    <div class="resultsGrid">
+      <div class="panel">
+        <div class="panelTitle">Results</div><div id="resultsMeta" class="subtle" style="margin:6px 0 10px 0"></div>
+        <table id="resultsTable">
+          <thead>
+            <tr><th>Faction</th><th>Role</th><th>Score (%)</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
 
-    answers.forEach((a, idx) => {
-      const q = QUESTIONS[idx];
-      if (a === null) return;
-      const v = scoreMap[a]; // -2..+2
-      sums[q.t] += v;
-      counts[q.t] += 1;
-    });
+      <div class="panel">
+        <div class="panelTitle">Archetypes</div>
+        <div id="archOut" class="muted">—</div>
+        <div style="height:10px"></div>
+        <div class="panelTitle">Trait breakdown</div>
+        <div id="traitOut" class="muted">—</div>
+      </div>
+    </div>
+  </section>
 
-    const out = {};
-    TRAITS.forEach(([k]) => {
-      const n = counts[k] || 1;
-      const avg = sums[k] / n; // -2..+2
-      out[k] = Math.round(((avg + 2) / 4) * 100); // 0..100
-    });
-    return out;
-  }
+<script>
+/* ===========================
+   CONFIG (set your URLs here)
+   =========================== */
+const LIB_URLS = {
+  roles: "https://raw.githubusercontent.com/JesterWolf/Fallout-Personality-Test/refs/heads/main/Role_Set-V1_2.json",
+  questions: "https://raw.githubusercontent.com/JesterWolf/Fallout-Personality-Test/refs/heads/main/Question_Set-V1-0.json",
+  archetypes: "https://raw.githubusercontent.com/JesterWolf/Fallout-Personality-Test/refs/heads/main/Archetype_Set-V1_0.json",
+};
+const TEST_QUESTION_COUNT = 50;
 
-  function roleScorePct(userTraits, role){
-    // Similarity: 100 - mean absolute error (0..100) mapped to 0..100
-    const diffs = [];
-    for (const [k] of TRAITS){
-      const rt = role.traits?.[k];
-      const ut = userTraits[k];
-      if (typeof rt !== "number") continue;
-      diffs.push(Math.abs(rt - ut));
+/* ===========================
+   TRAIT LABELS + GROUPS
+   =========================== */
+const TRAITS = [
+  "A1","A2","A3","B1","B2","B3","C1","C2","C3","D1","D2","D3"
+];
+const TRAIT_LABEL = {
+  A1:"Leadership", A2:"Aggression", A3:"Autonomy",
+  B1:"Risk Tolerance", B2:"Combat Exposure", B3:"Lethality Comfort",
+  C1:"Empathy", C2:"Persuasion", C3:"Community Orientation",
+  D1:"Technical Competence", D2:"Planning & Logistics", D3:"Adaptability"
+};
+
+/* ===========================
+   STATE
+   =========================== */
+const state = {
+  libs: { roles:[], questions:[], archetypes:[] },
+  quiz: { order:[], idx:0, answers:[] }, // answers: {qId, choiceIndex, traitDelta:{...}, weight:number}
+  userTraits: Object.fromEntries(TRAITS.map(t=>[t,50])), // start neutral 50
+  lastTop10: [],
+};
+
+/* ===========================
+   UTIL
+   =========================== */
+const $ = (id)=>document.getElementById(id);
+function clamp(n,min,max){ return Math.max(min, Math.min(max,n)); }
+function pct(n){ return (Math.round(n*10)/10).toFixed(1); }
+
+function logBoot(msg, cls=""){
+  const el = $("bootLog");
+  const div = document.createElement("div");
+  div.className = cls;
+  div.textContent = msg;
+  el.appendChild(div);
+  el.scrollTop = el.scrollHeight;
+}
+function setBootMeta(){
+  $("bootMeta").textContent =
+    `[Version] v1.0\n[Roles] ${state.libs.roles.length}\n[Questions] ${state.libs.questions.length}\n[Archetypes] ${state.libs.archetypes.length}`;
+}
+function setHdrStatus(){
+  $("hdrStatus").textContent = `[Version: v1.0]\n[Roles: ${state.libs.roles.length}]`;
+}
+
+/* Tolerant JSON parse: strips comments + trailing commas */
+function sanitizeJson(text){
+  // remove BOM
+  text = text.replace(/^\uFEFF/, "");
+  // remove // comments
+  text = text.replace(/(^|[^:])\/\/.*$/gm, "$1");
+  // remove /* */ comments
+  text = text.replace(/\/\*[\s\S]*?\*\//g, "");
+  // remove trailing commas in objects/arrays
+  text = text.replace(/,\s*([}\]])/g, "$1");
+  return text;
+}
+async function fetchJson(url, kindLabel="") {
+      const res = await fetch(url, { cache: "no-store" });
+      if(!res.ok) throw new Error(`HTTP ${res.status} fetching ${kindLabel||"JSON"}: ${url}`);
+      let txt = await res.text();
+
+      const t = txt.trim();
+      if (t.startsWith("<!DOCTYPE html") || t.startsWith("<html")) {
+        throw new Error(`Received HTML instead of JSON for ${kindLabel||"library"}. Use a raw.githubusercontent.com URL.`);
+      }
+
+      try { return JSON.parse(txt); }
+      catch(e){
+        // Try sanitize (BOM, trailing commas) then parse
+        try { return JSON.parse(sanitizeJson(txt)); }
+        catch(e2){
+          if((kindLabel||"").toLowerCase().includes("roles")){
+            const recovered = recoverRoleJson(txt);
+            if(recovered) return recovered;
+          }
+          throw new Error(`JSON parse failed for ${kindLabel||"library"}: ${e2.message}`);
+        }
+      }
     }
-    const mae = diffs.reduce((a,b)=>a+b,0) / (diffs.length || 1);
-    const pct = Math.max(0, Math.min(100, 100 - mae));
-    return pct;
-  }
 
-  function formatPct(x){
-    return (Math.round(x*10)/10).toFixed(1) + "%";
-  }
+    function recoverRoleJson(txt){
+      try{
+        const idPos = txt.search(/"id"\s*:\s*"/);
+        if(idPos<0) return null;
+        const bracePos = txt.lastIndexOf("{", idPos);
+        const lastBracket = txt.lastIndexOf("]");
+        if(bracePos<0 || lastBracket<0 || lastBracket<=bracePos) return null;
+        const body = txt.substring(bracePos, lastBracket).trim();
+        const candidate = "[" + body + "]";
+        const arr = JSON.parse(candidate);
+        if(!Array.isArray(arr) || !arr.length || !arr[0].id) return null;
+        return { roles: arr, _recovered: true };
+      }catch{ return null; }
+    }
 
-  function countTopSignals(topN){
-    const tagCounts = new Map();
-    const factionCounts = new Map();
-
-    topN.forEach(r => {
-      const f = r.faction || "Unknown";
-      factionCounts.set(f, (factionCounts.get(f)||0)+1);
-      (r.tags || []).forEach(t => tagCounts.set(t, (tagCounts.get(t)||0)+1));
-    });
-
-    const sortMap = (m) => [...m.entries()].sort((a,b)=>b[1]-a[1]);
-    return {
-      factions: sortMap(factionCounts).slice(0,10),
-      tags: sortMap(tagCounts).slice(0,12)
-    };
-  }
-
-  function renderResults(userTraits, scored){
-    resultsEl.style.display = "block";
-    jumpLink.style.display = "inline-block";
-    jumpLink.href = "#results";
-
-    const top = scored[0];
-    const imgHtml = (top.img && String(top.img).trim().length)
-      ? `<img src="${top.img}" alt="${top.faction} — ${top.role}" loading="lazy" onerror="this.closest('.roleimg').innerHTML='<div class=&quot;noimg&quot;>No Image</div>';">`
-      : `<div class="noimg">No Image</div>`;
-
-    const tags = (top.tags || []).slice(0,16);
-    topRolePanel.innerHTML = `
-      <div class="roleimg">${imgHtml}</div>
-      <div>
-        <h3>${top.faction} — ${top.role} <span class="muted">(${formatPct(top._scorePct)})</span></h3>
-        <div class="line">${top.notes ? top.notes : "<span class='muted'>No notes in library for this role.</span>"}</div>
-        <div class="chips">
-          ${tags.length ? tags.map(t=>`<span class="chip">${t}</span>`).join("") : `<span class="muted">No tags</span>`}
-        </div>
-        <a class="jump" href="#top3">Jump to Top 3 ↓</a>
-      </div>
-    `;
-
-    top3Table.innerHTML = `
-      <table id="top3">
-        <thead><tr><th>Faction</th><th>Role</th><th class="right">Score (%)</th></tr></thead>
-        <tbody>
-          ${scored.slice(0,3).map(r=>`
-            <tr>
-              <td>${r.faction||""}</td>
-              <td>${r.role||""}</td>
-              <td class="right">${formatPct(r._scorePct)}</td>
-            </tr>
-          `).join("")}
-        </tbody>
-      </table>
-    `;
-
-    traitGrid.innerHTML = TRAITS.map(([k,label]) => {
-      const v = userTraits[k];
-      return `
-        <div class="titem">
-          <div class="k">${label}</div>
-          <div class="v"><b>${v}</b><span class="muted">/ 100</span></div>
-          <div class="meter"><div style="width:${v}%;"></div></div>
-        </div>
-      `;
-    }).join("");
-
-    const top10 = scored.slice(0,10);
-    const sig = countTopSignals(top10);
-
-    const factionRows = sig.factions.length
-      ? sig.factions.map(([name,count]) => `<tr><td>${name}</td><td class="right">${count}</td></tr>`).join("")
-      : `<tr><td class="muted">None</td><td class="right">0</td></tr>`;
-    const tagRows = sig.tags.length
-      ? sig.tags.map(([name,count]) => `<tr><td>${name}</td><td class="right">${count}</td></tr>`).join("")
-      : `<tr><td class="muted">None</td><td class="right">0</td></tr>`;
-
-    freqPanels.innerHTML = `
-      <div>
-        <table>
-          <thead><tr><th colspan="2">Faction frequency (Top 10)</th></tr></thead>
-          <tbody>${factionRows}</tbody>
-        </table>
-      </div>
-      <div>
-        <table>
-          <thead><tr><th colspan="2">Tag frequency (Top 10)</th></tr></thead>
-          <tbody>${tagRows}</tbody>
-        </table>
-      </div>
-    `;
-  }
-
-  async function loadDefaultLibrary(){
+/* ===========================
+   LOADING
+   =========================== */
+async function loadAllLibraries(){
+  // Fetch JSON from URLs and normalize shapes.
+  const safeFetch = async (url, label) => {
     try{
-      libStatus.textContent = "Loading role library…";
-      const res = await fetch(DEFAULT_URL, { cache: "no-store" });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      if (!Array.isArray(data)) throw new Error("Library JSON is not an array");
-      // Basic validation + normalize
-      ROLE_LIBRARY = data
-        .filter(x => x && typeof x === "object" && x.traits && typeof x.traits === "object")
-        .map(x => ({
-          id: x.id || `${normalizeId(x.faction)}__${normalizeId(x.role)}`,
-          faction: x.faction || "Unknown",
-          role: x.role || "Unknown",
-          traits: x.traits || {},
-          variance: x.variance ?? null,
-          tags: Array.isArray(x.tags) ? x.tags : [],
-          notes: x.notes || "",
-          img: x.img || ""
-        }));
+      const res = await fetch(url, {cache: "no-store"});
+      if(!res.ok) throw new Error(`${label} HTTP ${res.status}`);
+      return await res.json();
+    }catch(err){
+      console.error(`Failed to load ${label}:`, err);
+      throw err;
+    }
+  };
 
-      if (ROLE_LIBRARY.length === 0) throw new Error("No valid role entries found.");
-      libStatus.innerHTML = `<span class="ok">Library loaded:</span> ${ROLE_LIBRARY.length} roles`;
-      startBtn.disabled = false;
-      submitBtn.disabled = true; // until answers done
-    }catch(e){
-      console.error(e);
-      libStatus.innerHTML = `<span class="err">Library failed:</span> ${String(e.message || e)}`;
-      startBtn.disabled = true;
+  logBoot("Fetching libraries...");
+  const [rolesRaw, questionsRaw, archetypesRaw] = await Promise.all([
+    safeFetch(LIB_URLS.roles, "roles"),
+    safeFetch(LIB_URLS.questions, "questions"),
+    safeFetch(LIB_URLS.archetypes, "archetypes")
+  ]);
+
+  // Roles: either array or {roles:[...]}
+  const roles = Array.isArray(rolesRaw) ? rolesRaw : (Array.isArray(rolesRaw.roles) ? rolesRaw.roles : []);
+  // Questions: either array or {questions:[...]}
+  const questions = Array.isArray(questionsRaw) ? questionsRaw : (Array.isArray(questionsRaw.questions) ? questionsRaw.questions : []);
+  // Archetypes: either array or {archetypes:[...]}
+  const archetypes = Array.isArray(archetypesRaw) ? archetypesRaw : (Array.isArray(archetypesRaw.archetypes) ? archetypesRaw.archetypes : []);
+
+  state.libs.roles = roles;
+  state.libs.questions = questions;
+  state.libs.archetypes = archetypes;
+
+  logBoot(`Loaded roles: ${roles.length}`);
+  logBoot(`Loaded questions: ${questions.length}`);
+  logBoot(`Loaded archetypes: ${archetypes.length}`);
+
+  if(!roles.length) throw new Error("No roles loaded (roles library empty or wrong JSON shape).");
+  if(!questions.length) throw new Error("No questions loaded (questions library empty or wrong JSON shape).");
+
+  state.ready = true;
+}
+
+/* ===========================
+   QUESTION SELECTION + SCORING
+   =========================== */
+function pickQuestionOrder(){
+  // Expected question objects:
+  // {
+  //   id:"Q1",
+  //   prompt:"...",
+  //   context:"...",
+  //   primary_traits:["C2","A1"], // optional
+  //   options:[ { key:"A", label:"...", tone:"...", delta:{C2:2,...}, weight:1 } ]
+  // }
+  const qs = state.libs.questions.filter(q =>
+    q && q.id && (q.prompt || q.question || q.text) && Array.isArray(q.options) && q.options.length >= 4
+  );
+  if(qs.length < TEST_QUESTION_COUNT){
+    throw new Error(`Not enough valid questions for 50Q test. Found ${qs.length}.`);
+  }
+  // shuffle, then take 50
+  const arr = [...qs];
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]] = [arr[j],arr[i]];
+  }
+  state.quiz.order = arr.slice(0, TEST_QUESTION_COUNT);
+  state.quiz.idx = 0;
+  state.quiz.answers = [];
+  // reset traits
+  state.userTraits = Object.fromEntries(TRAITS.map(t=>[t,50]));
+}
+
+function applyAnswerToTraits(answer){
+  // answer.delta is a per-trait delta map; apply with weight.
+  const w = typeof answer.weight === "number" ? answer.weight : 1;
+  const deltaObj = answer.delta || answer.traitDelta || {};
+  for(const t of TRAITS){
+    const d = (deltaObj && typeof deltaObj[t]==="number") ? deltaObj[t] : 0;
+    state.userTraits[t] = clamp(state.userTraits[t] + d*w, 0, 100);
+  }
+}
+
+function buildUserVector(){
+  return {...state.userTraits};
+}
+
+function roleDistance(user, role){
+  // Weighted distance with role variance dampening.
+  // variance ~ 5-8 means wider tolerance -> smaller effective distance
+  const rT = role.traits || {};
+  const variance = typeof role.variance === "number" ? role.variance : 6;
+  const sigma = clamp(variance, 3, 12); // tolerance
+  let sum = 0;
+  let wsum = 0;
+  for(const t of TRAITS){
+    const u = user[t];
+    const r = typeof rT[t]==="number" ? rT[t] : 50;
+    // normalize by tolerance (higher variance -> less penalty)
+    const diff = (u - r) / sigma;
+    const w = 1;
+    sum += w * diff * diff;
+    wsum += w;
+  }
+  return Math.sqrt(sum / Math.max(1, wsum)); // 0..?
+}
+
+function distanceToScore(dist){
+  // Map distance to 0..100 score. Lower dist => higher score.
+  // Use smooth curve: score = 100 * exp(-k*dist)
+  const k = 0.9;
+  return 100 * Math.exp(-k * dist);
+}
+
+function computeRankings(){
+  const user = buildUserVector();
+  const ranked = state.libs.roles
+    .filter(r=>r && r.faction && r.role && r.traits)
+    .map(r=>{
+      const dist = roleDistance(user, r);
+      let score = distanceToScore(dist);
+      // Small boost for close match vs role variance (narrow variance expects precision)
+      const variance = typeof r.variance === "number" ? r.variance : 6;
+      score *= (1 + (6 - clamp(variance,3,12))*0.01); // +/- a few %
+      score = clamp(score, 0, 100);
+      return { role:r, score, dist };
+    })
+    .sort((a,b)=>b.score - a.score);
+
+  return ranked;
+}
+
+/* ===========================
+   RENDER
+   =========================== */
+function renderQuestion(){
+  const q = state.quiz.order[state.quiz.idx];
+  if(!q) return;
+
+  const prompt = q.prompt || q.question || q.text || "";
+  const context = q.context || q.situation || "";
+  $("qText").textContent = `Q${state.quiz.idx+1}. ${prompt}`;
+  $("qSituation").textContent = context ? `SITUATION: ${context}` : "";
+  $("qCounter").textContent = `Question: ${state.quiz.idx+1}/${TEST_QUESTION_COUNT}`;
+  $("qProgress").textContent = `Progress: ${Math.round((state.quiz.idx/TEST_QUESTION_COUNT)*100)}%`;
+
+  const options = Array.isArray(q.options) ? q.options : (q.responses || []);
+  const list = $("choiceList");
+  list.innerHTML = "";
+
+  // We do NOT allow going back. Prev stays disabled.
+  $("btnPrev").disabled = true;
+  $("btnNext").disabled = true;
+
+  options.forEach((opt, i)=>{
+    const li = document.createElement("li");
+    li.className = "choice";
+    li.tabIndex = 0;
+    li.setAttribute("role","button");
+    li.setAttribute("aria-label", `Option ${i+1}`);
+
+    const num = document.createElement("div");
+    num.className = "choiceNum";
+    // show A/B/C... if provided, else numeric
+    num.textContent = (opt.key ? `${opt.key}.` : `${i+1}.`);
+
+    const txt = document.createElement("div");
+    txt.className = "choiceText";
+    txt.textContent = opt.label || opt.text || opt.response || "";
+
+    li.appendChild(num);
+    li.appendChild(txt);
+
+    function select(){
+      // clear
+      [...list.children].forEach(c=>c.classList.remove("selected"));
+      li.classList.add("selected");
+      $("btnNext").disabled = false;
+      $("qHint").textContent = "Selection locked. Press [Next].";
+    }
+
+    li.addEventListener("click", select);
+    li.addEventListener("keydown", (e)=>{
+      if(e.key==="Enter" || e.key===" "){
+        e.preventDefault();
+        select();
+      }
+    });
+    list.appendChild(li);
+  });
+
+  const prim = Array.isArray(q.primary_traits) ? q.primary_traits.filter(t=>TRAITS.includes(t)) : [];
+  $("qHint").textContent = prim.length ? `Select a response. (Primary traits: ${prim.join(", ")})` : "Select a response.";
+
+  // Update profile panel even before answering (based on current traits)
+  renderLiveProfile();
+}
+
+function setProfile(role, score){
+  const faction = role?.faction || "[Faction]";
+  const rname = role?.role || "[Role]";
+  $("profileTitle").textContent = `${faction} — ${rname}`;
+  const s = (typeof score==="number") ? pct(score) : "--";
+  $("profileMatch").textContent = `Match: ${s}%`;
+  $("profileMatch2").textContent = `${s}%`;
+
+  // image
+  const box = $("profileImgBox");
+  box.innerHTML = "";
+  if(role?.img){
+    const img = document.createElement("img");
+    img.src = role.img;
+    img.alt = `${faction} - ${rname}`;
+    img.onerror = ()=>{
+      box.innerHTML = `<span>[IMAGE]<br><span class="muted">(failed to load)</span></span>`;
+    };
+    box.appendChild(img);
+  }else{
+    box.innerHTML = `<span>[IMAGE]<br><span class="muted">(no img)</span></span>`;
+  }
+
+  $("profileNotes").textContent = role?.notes || "—";
+
+  const tags = role?.tags || [];
+  const wrap = $("profileTags");
+  wrap.innerHTML = "";
+  if(Array.isArray(tags) && tags.length){
+    tags.slice(0,12).forEach(t=>{
+      const span = document.createElement("span");
+      span.className = "tag";
+      span.textContent = t;
+      wrap.appendChild(span);
+    });
+  }else{
+    const span = document.createElement("span");
+    span.className = "tag";
+    span.textContent = "no_tags";
+    wrap.appendChild(span);
+  }
+}
+
+function renderTop3(ranked){
+  const top3 = ranked.slice(0,3);
+  const ol = $("top3List");
+  ol.innerHTML = "";
+  top3.forEach(item=>{
+    const li = document.createElement("li");
+    li.textContent = `${item.role.faction} — ${item.role.role} — ${pct(item.score)}%`;
+    ol.appendChild(li);
+  });
+  if(top3.length<3){
+    for(let i=top3.length;i<3;i++){
+      const li = document.createElement("li");
+      li.className = "muted";
+      li.textContent = `[Faction] — [Role] — --%`;
+      ol.appendChild(li);
     }
   }
+}
 
-  function resetAll(){
-    answers = new Array(QUESTIONS.length).fill(null);
-    resultsEl.style.display = "none";
-    questionsEl.style.display = "none";
-    submitRow.style.display = "none";
-    startBtn.style.display = "inline-block";
-    // clear radios
-    document.querySelectorAll("input[type=radio]").forEach(r => r.checked = false);
-    setProgress();
-    window.scrollTo({top:0, behavior:"smooth"});
+function renderLiveProfile(){
+  if(!state.libs.roles.length) return;
+  const ranked = computeRankings();
+  const best = ranked[0];
+  if(best){
+    setProfile(best.role, best.score);
+  }
+  renderTop3(ranked);
+  state.lastTop10 = ranked.slice(0,10);
+}
+
+function renderFinal(){
+  // reveal results section
+  $("results").classList.remove("hidden");
+
+  const ranked = computeRankings();
+
+  // results table top 10
+  const tbody = $("resultsTable").querySelector("tbody");
+  tbody.innerHTML = "";
+  ranked.slice(0,10).forEach(item=>{
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${escapeHtml(item.role.faction || "")}</td><td>${escapeHtml(item.role.role || "")}</td><td>${pct(item.score)}</td>`;
+    tbody.appendChild(tr);
+  });
+  $("resultsMeta").textContent = `Showing top ${Math.min(10, ranked.length)} of ${ranked.length} roles`;
+
+  // traits
+  const traitLines = TRAITS.map(t=>`${escapeHtml(TRAIT_LABEL[t])}: ${Math.round(state.userTraits[t])}`).join("<br>");
+  $("traitOut").innerHTML = traitLines;
+
+  // archetypes (end-of-test only)
+  const arch = computeArchetypes();
+  $("archOut").innerHTML = arch.html;
+
+  // Update right-panel top profile with archetype summary
+  if(ranked[0]){
+    setProfileFromRole(ranked[0].role, ranked[0].score);
+    const extra = arch.top3.length
+      ? `\n\nTop Archetypes: ${arch.summary}`
+      : ``;
+    // append to custom note box for quick visibility
+    const base = ranked[0].role.notes ? ranked[0].role.notes : "No notes.";
+    $("customNote").textContent = base + extra;
   }
 
-  startBtn.addEventListener("click", () => {
-    startBtn.style.display = "none";
-    questionsEl.style.display = "block";
-    submitRow.style.display = "flex";
-    renderQuestions();
-    window.scrollTo({top: 210, behavior:"smooth"});
-  });
+  // Scroll to results anchor
+  document.getElementById("results").scrollIntoView({behavior:"smooth", block:"start"});
+}
 
-  resetBtn.addEventListener("click", resetAll);
 
-  submitBtn.addEventListener("click", () => {
-    if (submitBtn.disabled) return;
-    const userTraits = computeTraitScores();
-    const scored = ROLE_LIBRARY
-      .map(r => {
-        const pct = roleScorePct(userTraits, r);
-        return {...r, _scorePct: pct};
-      })
-      .sort((a,b) => b._scorePct - a._scorePct);
+/* ===========================
+   ARCHETYPES
+   =========================== */
+function computeArchetypes(){
+  const archs = state.libs.archetypes || [];
+  if(!archs.length) return {top3: [], html: `<div class="subtle">No archetype library loaded.</div>`, summary: ""};
 
-    renderResults(userTraits, scored);
-    window.scrollTo({top: document.getElementById("results").offsetTop - 10, behavior:"smooth"});
-  });
+  const user = state.userTraits;
+  const scored = archs.map(a=>{
+    const weights = a.weights || {};
+    const thresholds = a.thresholds || {};
+    let raw = 0;
+    let denom = 0;
+    for(const [k,w] of Object.entries(weights)){
+      if(user[k] == null) continue;
+      raw += user[k] * w;
+      denom += Math.abs(w) * 100;
+    }
+    let score = denom>0 ? (raw/denom)*100 : 0;
+    // normalize to 0..100
+    score = Math.max(0, Math.min(100, (score+100)/2)); // map -100..100 => 0..100
 
-  // init
-  loadDefaultLibrary();
-  setProgress();
-})();
+    // apply simple threshold gating (soft)
+    for(const [k, minVal] of Object.entries(thresholds)){
+      if(user[k] != null && user[k] < minVal){
+        score *= 0.75; // penalize if key trait below expected
+      }
+    }
+    return {a, score};
+  }).sort((x,y)=>y.score-x.score);
+
+  const top3 = scored.slice(0,3);
+
+  const html = `
+    <div class="archBlock">
+      <div class="archTitle">ARCHETYPES (Top 3)</div>
+      ${top3.map(x=>`
+        <div class="archRow">
+          <div class="archName">${escapeHtml(x.a.name || x.a.id || "Archetype")}</div>
+          <div class="archScore">${pct(x.score)}</div>
+        </div>
+        ${x.a.summary ? `<div class="archSummary">${escapeHtml(x.a.summary)}</div>` : ``}
+      `).join("")}
+    </div>
+  `;
+
+  const summary = top3.map(x=>x.a.name || x.a.id).filter(Boolean).join(", ");
+  return {top3, html, summary};
+}
+
+
+function cosineSim(v1, v2){
+  let dot=0, a=0, b=0;
+  for(const t of TRAITS){
+    const x = typeof v1[t]==="number" ? v1[t] : 50;
+    const y = typeof v2[t]==="number" ? v2[t] : 50;
+    dot += x*y;
+    a += x*x;
+    b += y*y;
+  }
+  if(a===0 || b===0) return 0;
+  return dot / (Math.sqrt(a)*Math.sqrt(b));
+}
+
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, (m)=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[m]));
+}
+
+/* ===========================
+   NAVIGATION (NO BACK)
+   =========================== */
+function handleNext(){
+  const q = state.quiz.order[state.quiz.idx];
+  const options = Array.isArray(q.options) ? q.options : (q.responses || []);
+  const sel = [...$("choiceList").children].findIndex(el=>el.classList.contains("selected"));
+  if(sel < 0) return;
+
+  const opt = options[sel] || {};
+  const effects = opt.delta || opt.effects || opt.traits || {};
+  const weight = typeof opt.weight === "number" ? opt.weight : 1;
+
+  const answer = {
+    qId: q.id,
+    choiceKey: opt.key || String(sel+1),
+    tone: opt.tone || null,
+    choiceIndex: sel,
+    delta: normalizeEffects(effects),
+    weight
+  };
+  state.quiz.answers.push(answer);
+  applyAnswerToTraits(answer);
+
+  state.quiz.idx++;
+
+  if(state.quiz.idx >= TEST_QUESTION_COUNT){
+    // finalize
+    $("qProgress").textContent = "Progress: 100%";
+    $("qCounter").textContent = `Question: ${TEST_QUESTION_COUNT}/${TEST_QUESTION_COUNT}`;
+    $("btnNext").disabled = true;
+    $("choiceList").innerHTML = "";
+    $("qText").textContent = "Test complete.";
+    $("qSituation").textContent = "Finalizing results…";
+    renderLiveProfile();
+    renderFinal();
+    return;
+  }
+
+  renderQuestion();
+}
+
+function normalizeEffects(effects){
+  // Ensure all 12 traits exist; expected deltas in range roughly -10..+10
+  const out = Object.fromEntries(TRAITS.map(t=>[t,0]));
+  if(effects && typeof effects==="object"){
+    for(const t of TRAITS){
+      if(typeof effects[t]==="number") out[t] = effects[t];
+    }
+  }
+  return out;
+}
+
+/* ===========================
+   INIT
+   =========================== */
+async function init(){
+  try{
+    await loadAllLibraries();
+    setHdrStatus();
+
+    // sanity checks
+    if(!state.libs.roles.length) throw new Error("Roles library empty.");
+    if(!state.libs.questions.length) throw new Error("Questions library empty.");
+
+    pickQuestionOrder();
+    renderQuestion();
+
+    $("btnNext").addEventListener("click", handleNext);
+  const rb = $("resetBtn");
+  if(rb){ rb.addEventListener("click", ()=>window.location.reload()); }
+
+    // disable prev permanently
+    $("btnPrev").addEventListener("click", (e)=>e.preventDefault());
+
+    logBoot("> Ready.", "bootOk");
+  }catch(err){
+    // keep boot visible on failure
+    logBoot("FATAL: " + err.message, "bootErr");
+    $("bootHint").textContent = "Fix the library URLs / JSON, then reload.";
+  }
+}
+
+init();
 </script>
 </body>
 </html>
