@@ -676,8 +676,11 @@ async function loadAllLibraries(){
   state.libs.questions = questions;
   state.libs.archetypes = archetypes;
 
+  logBoot(`Loading Roles... [LIBRARY LOAD]`);
   logBoot(`Loaded roles: ${roles.length}`);
+  logBoot(`Loading Questions... [LIBRARY LOAD]`);
   logBoot(`Loaded questions: ${questions.length}`);
+  logBoot(`Loading Archetypes... [LIBRARY LOAD]`);
   logBoot(`Loaded archetypes: ${archetypes.length}`);
 
   if(!roles.length) throw new Error("No roles loaded (roles library empty or wrong JSON shape).");
@@ -988,6 +991,7 @@ function computeArchetypes(){
 
   const top3 = scored.slice(0,3);
 
+/*
   const html = `
     <div class="archBlock">
       <div class="archTitle">ARCHETYPES (Top 3)</div>
@@ -1000,7 +1004,7 @@ function computeArchetypes(){
       `).join("")}
     </div>
   `;
-
+*/
   const summary = top3.map(x=>x.a.name || x.a.id).filter(Boolean).join(", ");
   return {top3, html, summary};
 }
@@ -1098,7 +1102,7 @@ async function init(){
     // disable prev permanently
     $("btnPrev").addEventListener("click", (e)=>e.preventDefault());
 
-    logBoot("> Ready. -- Here", "bootOk");
+    logBoot("> Ready.", "bootOk");
   }catch(err){
     // keep boot visible on failure
     logBoot("FATAL: " + err.message, "bootErr");
