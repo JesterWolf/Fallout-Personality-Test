@@ -456,7 +456,6 @@
         <ol class="choices" id="choiceList"></ol>
 
         <div class="navRow">
-          <button class="btn" id="btnPrev" disabled>[Previous]</button>
           <button class="btn btnPrimary" id="btnNext" disabled>[Next]</button>
         </div>
 
@@ -466,8 +465,13 @@
       <div class="panel">
         <div class="panelTitle">Info</div>
         <div class="muted" id="infoText">
-          General description of the test and the 12 traits. Your responses generate a 12‑trait profile (A1..D3),
-          then we compare it to roles in the library. You cannot return to previous questions.
+          Welcome to the RobCo Role Allocator! This brilliant system will test your most core
+		  attributes to assign you the perfect job in the wasteland - and the best faction for you!
+		  
+		  This tests "Leadership", "Aggression", "Autonomy", "Risk Tolerance", "Combat Exposure",
+		  "Lethality Comfort", "Empathy", "Persuasion", "Community Orientation", "Technical Competence",
+		  "Planning & Logistics", "Adaptability"
+		  <button id="resetBtn" class="btnSmall" type="button">Reset</button>
         </div>
       </div>
     </section>
@@ -475,10 +479,10 @@
     <!-- RIGHT -->
     <section class="rightGrid">
       <div class="panel">
-        <div class="panelTitle">[Faction] - [Role]</div>
+        <div class="panelTitle">Dynamic Profile [Top Match]:</div>
 
         <div class="profileHeader">
-          <div class="title" id="profileTitle">Dynamic Profile: Top Match</div>
+          <div class="title" id="profileTitle">[Faction] - [Role]</div>
           <div class="match" id="profileMatch">Match: --%</div>
         </div>
 
@@ -497,8 +501,8 @@
       </div>
 
       <div class="panel">
-        <div class="panelTitleRow"><div class="panelTitle">Custom note</div><button id="resetBtn" class="btnSmall" type="button">Reset</button></div>
-        <div class="muted" id="customNote">Complete the test to generate your archetype summary.</div>
+        <div class="panelTitleRow"><div class="panelTitle">Archetype</div></div>
+        <div class="muted" id="archOut">Complete the test to generate your archetype summary.</div>
       </div>
 
       <div class="panel">
@@ -811,7 +815,6 @@ function renderQuestion(){
   list.innerHTML = "";
 
   // We do NOT allow going back. Prev stays disabled.
-  $("btnPrev").disabled = true;
   $("btnNext").disabled = true;
 
   options.forEach((opt, i)=>{
@@ -1111,9 +1114,6 @@ async function init(){
     $("btnNext").addEventListener("click", handleNext);
   const rb = $("resetBtn");
   if(rb){ rb.addEventListener("click", ()=>window.location.reload()); }
-
-    // disable prev permanently
-    $("btnPrev").addEventListener("click", (e)=>e.preventDefault());
 
     logBoot("> Ready.", "bootOk");
     $("bootHint").textContent = "Initialization complete.";
