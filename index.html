@@ -585,10 +585,23 @@ function logBoot(msg, cls=""){
 }
 function setBootMeta(){
   $("bootMeta").textContent =
-    "[Version] v1.0 \n [Roles] ${state.libs.roles.length} \n [Questions] ${state.libs.questions.length} \n [Archetypes] ${state.libs.archetypes.length}";
+`[Version] v1.0
+[Roles] ${state.libs.roles.length}
+[Questions] ${state.libs.questions.length}
+[Archetypes] ${state.libs.archetypes.length}`;
 }
 function setHdrStatus(){
   $("hdrStatus").textContent = `[Version: v1.0]\n[Roles: ${state.libs.roles.length}]`;
+}
+
+function hideBoot(){
+  const boot = document.getElementById("boot");
+  if(!boot) return;
+  boot.style.transition = "opacity 0.6s ease";
+  boot.style.opacity = "0";
+  setTimeout(() => {
+    try{ boot.remove(); }catch{ boot.style.display = "none"; }
+  }, 650);
 }
 
 /* Tolerant JSON parse: strips comments + trailing commas */
@@ -991,7 +1004,6 @@ function computeArchetypes(){
 
   const top3 = scored.slice(0,3);
 
-/*
   const html = `
     <div class="archBlock">
       <div class="archTitle">ARCHETYPES (Top 3)</div>
@@ -1004,7 +1016,7 @@ function computeArchetypes(){
       `).join("")}
     </div>
   `;
-*/
+  
   const summary = top3.map(x=>x.a.name || x.a.id).filter(Boolean).join(", ");
   return {top3, html, summary};
 }
@@ -1086,6 +1098,7 @@ function normalizeEffects(effects){
 async function init(){
   try{
     await loadAllLibraries();
+    setBootMeta();
     setHdrStatus();
 
     // sanity checks
@@ -1103,6 +1116,8 @@ async function init(){
     $("btnPrev").addEventListener("click", (e)=>e.preventDefault());
 
     logBoot("> Ready.", "bootOk");
+    $("bootHint").textContent = "Initialization complete.";
+    setTimeout(hideBoot, 800);
   }catch(err){
     // keep boot visible on failure
     logBoot("FATAL: " + err.message, "bootErr");
