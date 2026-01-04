@@ -1098,7 +1098,7 @@ async function init(){
     // disable prev permanently
     $("btnPrev").addEventListener("click", (e)=>e.preventDefault());
 
-    logBoot("> Ready.", "bootOk");
+    logBoot("> Ready. -- Here", "bootOk");
   }catch(err){
     // keep boot visible on failure
     logBoot("FATAL: " + err.message, "bootErr");
