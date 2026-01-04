@@ -1,21 +1,3 @@
-	{
-	"version": "v1.2.1-A",
-	  "traits": ["A1","A2","A3","B1","B2","B3","C1","C2","C3","D1","D2","D3"],
-	  "trait_labels": {
-	    "A1": "Leadership",
-	    "A2": "Aggression",
-	    "A3": "Autonomy",
-	    "B1": "Risk Tolerance",
-	    "B2": "Combat Exposure",
-	    "B3": "Lethality Comfort",
-	    "C1": "Empathy",
-	    "C2": "Persuasion",
-	    "C3": "Community Orientation",
-	    "D1": "Technical Competence",
-	    "D2": "Planning & Logistics",
-	    "D3": "Adaptability"
-	  }
-	}
 [
   {
     "id": "NEW_CALIFORNIA_REPUBLIC__NCR_PATROL_RANGER",
