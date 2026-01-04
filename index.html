@@ -530,8 +530,6 @@
       </div>
 
       <div class="panel">
-        <div class="panelTitle">Archetypes</div>
-        <div id="archOut" class="muted">—</div>
         <div style="height:10px"></div>
         <div class="panelTitle">Trait breakdown</div>
         <div id="traitOut" class="muted">—</div>
@@ -1013,9 +1011,11 @@ function computeArchetypes(){
       <div class="archTitle">ARCHETYPES (Top 3)</div>
       ${top3.map(x=>`
         <div class="archRow">
-          <div class="archName">${escapeHtml(x.a.name || x.a.id || "Archetype")}</div>
+          <div class="archName"><strong>${escapeHtml(x.a.name || x.a.id || "Archetype")}</strong></div>
+		  
           <div class="archScore">${pct(x.score)}</div>
         </div>
+		
         ${x.a.summary ? `<div class="archSummary">${escapeHtml(x.a.summary)}</div>` : ``}
       `).join("")}
     </div>
