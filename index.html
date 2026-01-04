@@ -682,7 +682,7 @@ async function loadAllLibraries(){
 
   if(!roles.length) throw new Error("No roles loaded (roles library empty or wrong JSON shape).");
   if(!questions.length) throw new Error("No questions loaded (questions library empty or wrong JSON shape).");
-
+	console.Error("Load to state.ready");
   state.ready = true;
 }
 
