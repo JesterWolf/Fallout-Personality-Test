@@ -872,7 +872,7 @@ function setProfile(role, score){
   box.innerHTML = "";
   if(role?.img){
     const img = document.createElement("img");
-    img.src = role.img;
+    img.src = "https://github.com/JesterWolf/Fallout-Personality-Test/blob/Img/"+ role.id +".jpg?raw=true";
     img.alt = `${faction} - ${rname}`;
     img.onerror = ()=>{
       box.innerHTML = `<span>[IMAGE]<br><span class="muted">(failed to load)</span></span>`;
