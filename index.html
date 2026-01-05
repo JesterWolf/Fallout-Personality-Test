@@ -1015,6 +1015,10 @@ function computeArchetypes(){
 		<br>
         ${x.a.summary ? `<div class="archSummary">${escapeHtml(x.a.summary)}</div>` : ``}
 		<br>
+		${x.a.strengths ? `<div class="archStrengths">Strenghts: ${escapeHtml(x.a.strengths)}</div>` : ``}
+		<br>
+		${x.a.risks ? `<div class="archRisks">Risks: ${escapeHtml(x.a.risks)}</div>` : ``}
+		<br>
       `).join("")}
     </div>
   `;
