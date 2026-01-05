@@ -589,7 +589,7 @@ function logBoot(msg, cls=""){
 }
 function setBootMeta(){
   $("bootMeta").textContent =
-`[Version] v1.1-A
+`[Version] v1.0
 [Roles] ${state.libs.roles.length}
 [Questions] ${state.libs.questions.length}
 [Archetypes] ${state.libs.archetypes.length}`;
@@ -877,8 +877,11 @@ function setProfile(role, score){
     img.src = "https://github.com/JesterWolf/Fallout-Personality-Test/blob/Img/"+ role.id +".jpg?raw=true";
     img.alt = "https://github.com/JesterWolf/Fallout-Personality-Test/blob/25198e654e2a60e009db1a60e04aba2b7e614264/Img/Technical%20Difficulties.png?raw=true";
     img.onerror = ()=>{
-      box.innerHTML = "https://github.com/JesterWolf/Fallout-Personality-Test/blob/25198e654e2a60e009db1a60e04aba2b7e614264/Img/Technical%20Difficulties.png?raw=true";
-    };
+		img.src = "https://github.com/JesterWolf/Fallout-Personality-Test/blob/25198e654e2a60e009db1a60e04aba2b7e614264/Img/Technical%20Difficulties.png?raw=true";
+		img.onerror = ()=>{
+		  box.innerHTML = `<span>[IMAGE]<br><span class="muted">(failed to load)</span></span>`;
+		};
+	};
     box.appendChild(img);
   }else{
     box.innerHTML = `<span>[IMAGE]<br><span class="muted">(no img)</span></span>`;
