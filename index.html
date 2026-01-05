@@ -721,7 +721,7 @@ function pickQuestionOrder(){
     q && q.id && (q.prompt || q.question || q.text) && Array.isArray(q.options) && q.options.length >= 4
   );
   if(qs.length < TEST_QUESTION_COUNT){
-    throw new Error(`Not enough valid questions for 50Q test. Found ${qs.length}.`);
+    throw new Error(`Not enough valid questions for test. Found ${qs.length}.`);
   }
   // shuffle, then take 50
   const arr = [...qs];
