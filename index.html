@@ -421,7 +421,7 @@
     <div class="bootFrame">
       <div class="bootTitle">
         <h1>RobCo Industries (TM) Unified OS</h1>
-        <div class="bootMeta" id="bootMeta">[Version] v1.0\n[Roles] 0\n[Questions] 0\n[Archetypes] 0</div>
+        <div class="bootMeta" id="bootMeta">[Version] v1.1\n[Roles] 0\n[Questions] 0\n[Archetypes] 0</div>
       </div>
       <div class="bootLog" id="bootLog" aria-live="polite"></div>
       <div class="bootBarWrap">
@@ -471,8 +471,9 @@
 		  This tests Leadership, Aggression, Autonomy, Risk Tolerance, Combat Exposure,
 		  Lethality Comfort, Empathy, Persuasion, Community Orientation, Technical Competence,
 		  Planning & Logistics, Adaptability.
+		  <br> 
 		  <br>
-		  <button id="resetBtn" class="btnSmall" type="button">Reset</button>
+		  <button id="resetBtn" class="btnSmall" type="button">Reset Test</button>
         </div>
       </div>
     </section>
@@ -874,7 +875,7 @@ function setProfile(role, score){
   if(role?.img){
     const img = document.createElement("img");
     img.src = "https://github.com/JesterWolf/Fallout-Personality-Test/blob/Img/"+ role.id +".jpg?raw=true";
-    img.alt = `${faction} - ${rname}`;
+    img.alt = "https://github.com/JesterWolf/Fallout-Personality-Test/blob/25198e654e2a60e009db1a60e04aba2b7e614264/Img/Technical%20Difficulties.png?raw=true";
     img.onerror = ()=>{
       box.innerHTML = `<span>[IMAGE]<br><span class="muted">(failed to load)</span></span>`;
     };
@@ -1010,14 +1011,14 @@ function computeArchetypes(){
     <div class="archBlock">
       ${top3.map(x=>`
         <div class="archRow">
-          <div class="archName"><strong>${escapeHtml(x.a.name || x.a.id || "Archetype")}</strong> - ${pct(x.score)}%</div>
+          <div class="archName"><ins><strong>${escapeHtml(x.a.name || x.a.id || "Archetype")}</strong></ins> - ${pct(x.score)}%</div>
         </div>
 		<br>
         ${x.a.summary ? `<div class="archSummary">${escapeHtml(x.a.summary)}</div>` : ``}
 		<br>
-		${x.a.strengths ? `<div class="archStrengths">Strenghts: ${escapeHtml(x.a.strengths)}</div>` : ``}
+		${x.a.strengths ? `<div class="archStrengths"><ins>Strenghts:</ins> ${escapeHtml(x.a.strengths)}</div>` : ``}
 		<br>
-		${x.a.risks ? `<div class="archRisks">Risks: ${escapeHtml(x.a.risks)}</div>` : ``}
+		${x.a.risks ? `<div class="archRisks"><ins>Risks:</ins> ${escapeHtml(x.a.risks)}</div>` : ``}
 		<br>
       `).join("")}
     </div>
