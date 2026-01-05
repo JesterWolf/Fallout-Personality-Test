@@ -1011,8 +1011,9 @@ function computeArchetypes(){
         <div class="archRow">
           <div class="archName"><strong>${escapeHtml(x.a.name || x.a.id || "Archetype")}</strong> - ${pct(x.score)}%</div>
         </div>
-		
+		<br>
         ${x.a.summary ? `<div class="archSummary">${escapeHtml(x.a.summary)}</div>` : ``}
+		<br>
       `).join("")}
     </div>
   `;
