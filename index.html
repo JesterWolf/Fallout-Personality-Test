@@ -743,7 +743,7 @@ function applyAnswerToTraits(answer){
   const deltaObj = answer.delta || answer.traitDelta || {};
   for(const t of TRAITS){
     const d = (deltaObj && typeof deltaObj[t]==="number") ? deltaObj[t] : 0;
-    state.userTraits[t] = clamp(state.userTraits[t] + (d*5)*w, 0, 100);
+    state.userTraits[t] = clamp(state.userTraits[t] + (d*2)*w, 0, 100);
   }
 }
 
