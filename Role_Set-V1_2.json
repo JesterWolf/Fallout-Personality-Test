@@ -23,16 +23,16 @@
     "traits": {
       "A1": 45,
       "A2": 50,
-      "A3": 55,
+      "A3": 60,
       "B1": 70,
       "B2": 75,
-      "B3": 30,
+      "B3": 45,
       "C1": 65,
       "C2": 60,
       "C3": 60,
       "D1": 55,
       "D2": 50,
-      "D3": 35
+      "D3": 60
     },
     "variance": 5,
     "tags": [
@@ -41,8 +41,12 @@
       "Law Enforcer",
       "Scout"
     ],
-    "notes": "A long-range lawman, sent to keep roads open, track raiders, and project NCR authority beyond the settled heartland. Employed as the specialists of the NCR.",
-    "img": "https://images.fallout.wiki/thumb/2/27/NCR_Lads_1.jpg/539px-NCR_Lads_1.jpg"
+    "notes": "A long-range lawman, sent to keep roads open, track raiders, and project NCR authority beyond the settled heartland. Employed as the specialists of the NCR. A survivalist at heart, will often pass on their knowledge to settlements to help them grow.",
+    "img": "https://images.fallout.wiki/thumb/2/27/NCR_Lads_1.jpg/539px-NCR_Lads_1.jpg",
+    "archetypes": [
+      "Community Anchor",
+      "Survivor"
+    ]
   },
   {
     "id": "NEW_CALIFORNIA_REPUBLIC__NCR_VETERAN_RANGER",
@@ -51,16 +55,16 @@
     "traits": {
       "A1": 60,
       "A2": 55,
-      "A3": 70,
+      "A3": 85,
       "B1": 85,
       "B2": 90,
-      "B3": 35,
-      "C1": 75,
+      "B3": 70,
+      "C1": 60,
       "C2": 65,
-      "C3": 70,
+      "C3": 50,
       "D1": 65,
       "D2": 60,
-      "D3": 45
+      "D3": 100
     },
     "variance": 5,
     "tags": [
@@ -70,7 +74,11 @@
       "Special Operations"
     ],
     "notes": "The NCR\u2019s elite field operator: seasoned, heavily trusted, and used for high-risk missions, counter-raider work, undercover operations and missions where experience matters more than comfort.",
-    "img": "https://images.fallout.wiki/thumb/8/87/NCR_Lads_2.jpg/540px-NCR_Lads_2.jpg"
+    "img": "https://images.fallout.wiki/thumb/8/87/NCR_Lads_2.jpg/540px-NCR_Lads_2.jpg",
+    "archetypes": [
+      "Covert Operative",
+      "Field Operator"
+    ]
   },
   {
     "id": "NEW_CALIFORNIA_REPUBLIC__NCR_TROOPER",

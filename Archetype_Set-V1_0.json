@@ -92,8 +92,8 @@
       "best_fit_roles_hint": ["representative","merchant","liaison","broker","public_face"]
     },
     {
-      "id": "ARCH__COVERT_OPERATOR",
-      "name": "Covert Operator",
+      "id": "ARCH__COVERT_OPERATIVE",
+      "name": "Covert Operative",
       "summary": "Works in shadows: compartmentalization, stealth, and information advantage.",
       "tone": "covert",
       "weights": { "A3": 1.6, "D3": 1.0, "B1": 0.8, "C2": 0.6, "A1": -0.2, "C3": -0.2 },
@@ -128,8 +128,8 @@
       "best_fit_roles_hint": ["merc_command","authoritarian_admin","enforcer_leadership","criminal_management"]
     },
     {
-      "id": "ARCH__SURVIVOR_PRACTICAL",
-      "name": "Survivor (Practical)",
+      "id": "ARCH__SURVIVOR",
+      "name": "Survivor",
       "summary": "Gets through today. Values workable choices, lower drama, and repeatable survival behaviors.",
       "tone": "pragmatic",
       "weights": { "D3": 1.0, "D2": 1.0, "B1": 0.8, "C3": 0.6, "A1": 0.2, "A2": -0.2 },
