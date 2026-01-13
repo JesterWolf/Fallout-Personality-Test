@@ -421,7 +421,7 @@
     <div class="bootFrame">
       <div class="bootTitle">
         <h1>RobCo Industries (TM) Unified OS</h1>
-        <div class="bootMeta" id="bootMeta">[Version] v1.1\n[Roles] 0\n[Questions] 0\n[Archetypes] 0</div>
+        <div class="bootMeta" id="bootMeta">[Version] v1.2\n[Roles] 0\n[Questions] 0\n[Archetypes] 0</div>
       </div>
       <div class="bootLog" id="bootLog" aria-live="polite"></div>
       <div class="bootBarWrap">
@@ -436,7 +436,7 @@
     <div class="brand">
       <h2>RobCo Industries (TM) Role Allocator</h2><div class="pipe">|</div>
     </div>
-    <div class="status" id="hdrStatus">[Version: v1.1]\n[Roles: 0]</div>
+    <div class="status" id="hdrStatus">[Version: v1.2]\n[Roles: 0]</div>
   </header>
   <div class="rule"></div>
 
@@ -589,13 +589,13 @@ function logBoot(msg, cls=""){
 }
 function setBootMeta(){
   $("bootMeta").textContent =
-`[Version] v1.0
+`[Version] v1.2
 [Roles] ${state.libs.roles.length}
 [Questions] ${state.libs.questions.length}
 [Archetypes] ${state.libs.archetypes.length}`;
 }
 function setHdrStatus(){
-  $("hdrStatus").textContent = `[Version: v1.1]\n[Roles: ${state.libs.roles.length}]`;
+  $("hdrStatus").textContent = `[Version: v1.2]\n[Roles: ${state.libs.roles.length}]`;
 }
 
 function hideBoot(){
