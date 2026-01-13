@@ -876,10 +876,6 @@ function setProfile(role, score){
     const img = document.createElement("img");
     img.src = "https://github.com/JesterWolf/Fallout-Personality-Test/blob/Img/"+ role.id +".jpg?raw=true";
     img.onerror = ()=>{
-      img.src = "https://github.com/JesterWolf/Fallout-Personality-Test/blob/Img/"+ role.id +".png?raw=true";
-    };
-    img.alt = "https://github.com/JesterWolf/Fallout-Personality-Test/blob/25198e654e2a60e009db1a60e04aba2b7e614264/Img/Technical%20Difficulties.png?raw=true";
-    img.onerror = ()=>{
 		  img.src = "https://github.com/JesterWolf/Fallout-Personality-Test/blob/25198e654e2a60e009db1a60e04aba2b7e614264/Img/Technical%20Difficulties.png?raw=true";
 		  img.onerror = ()=>{
 		    box.innerHTML = `<span>[IMAGE]<br><span class="muted">(failed to load)</span></span>`;
