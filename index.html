@@ -875,16 +875,17 @@ function setProfile(role, score){
   if(role?.img){
     const img = document.createElement("img");
     img.src = "https://github.com/JesterWolf/Fallout-Personality-Test/blob/Img/"+ role.id +".jpg?raw=true";
-    /* img.onerror = ()=>{
+      img.onerror = ()=>{
       console.log("Failed to fetch" + img.src)
 		  img.src = "https://github.com/JesterWolf/Fallout-Personality-Test/blob/25198e654e2a60e009db1a60e04aba2b7e614264/Img/Technical%20Difficulties.png?raw=true";
 		  img.onerror = ()=>{
         console.log("Failed to fetch" + img.src)
 		    box.innerHTML = `<span>[IMAGE]<br><span class="muted">(failed to load)</span></span>`;
-		}; */
+		};
 	};
     box.appendChild(img);
   }else{
+    
     box.innerHTML = `<span>[IMAGE]<br><span class="muted">(no img)</span></span>`;
   }
 
