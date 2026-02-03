@@ -34,7 +34,7 @@
       "D2": 50,
       "D3": 60
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Special Operations",
@@ -66,7 +66,7 @@
       "D2": 60,
       "D3": 100
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Covert Operative",
@@ -98,7 +98,7 @@
       "D2": 45,
       "D3": 25
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Security",
@@ -125,7 +125,7 @@
       "D2": 55,
       "D3": 20
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Heavy Weapons",
@@ -152,7 +152,7 @@
       "D2": 65,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Scout",
@@ -179,7 +179,7 @@
       "D2": 75,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Aircrew",
@@ -206,7 +206,7 @@
       "D2": 45,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Law Enforcer",
@@ -233,7 +233,7 @@
       "D2": 40,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Law Enforcer",
       "Leader",
@@ -260,7 +260,7 @@
       "D2": 40,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Law Enforcer",
       "Security",
@@ -287,7 +287,7 @@
       "D2": 50,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Officer",
@@ -314,7 +314,7 @@
       "D2": 75,
       "D3": 30
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Logistics",
@@ -341,7 +341,7 @@
       "D2": 70,
       "D3": 30
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Intelligence",
@@ -368,7 +368,7 @@
       "D2": 65,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Intelligence",
@@ -395,7 +395,7 @@
       "D2": 85,
       "D3": 25
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Engineer",
@@ -422,7 +422,7 @@
       "D2": 80,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Medical",
@@ -449,7 +449,7 @@
       "D2": 40,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Political Authority",
       "Administrator",
@@ -476,7 +476,7 @@
       "D2": 40,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Political Authority",
       "Leader",
@@ -503,7 +503,7 @@
       "D2": 70,
       "D3": 60
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Leader",
@@ -530,7 +530,7 @@
       "D2": 65,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Leader",
@@ -557,7 +557,7 @@
       "D2": 60,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Leader",
@@ -584,7 +584,7 @@
       "D2": 55,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Support",
@@ -611,7 +611,7 @@
       "D2": 70,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Special Operations",
@@ -638,7 +638,7 @@
       "D2": 70,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Leader",
@@ -665,7 +665,7 @@
       "D2": 70,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Special Operations",
@@ -692,7 +692,7 @@
       "D2": 65,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Special Operations",
@@ -719,7 +719,7 @@
       "D2": 85,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Engineer",
@@ -746,7 +746,7 @@
       "D2": 65,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Officer",
@@ -773,7 +773,7 @@
       "D2": 60,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Officer",
@@ -800,7 +800,7 @@
       "D2": 60,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Security",
@@ -827,7 +827,7 @@
       "D2": 75,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Officer",
@@ -854,7 +854,7 @@
       "D2": 75,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Aircrew",
@@ -881,7 +881,7 @@
       "D2": 70,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Aircrew",
@@ -908,7 +908,7 @@
       "D2": 90,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Scientist",
@@ -935,7 +935,7 @@
       "D2": 55,
       "D3": 30
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Support",
@@ -962,7 +962,7 @@
       "D2": 45,
       "D3": 25
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Support",
@@ -989,7 +989,7 @@
       "D2": 40,
       "D3": 20
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Support",
@@ -1016,7 +1016,7 @@
       "D2": 60,
       "D3": 85
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Leader",
@@ -1043,7 +1043,7 @@
       "D2": 60,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Officer",
@@ -1070,7 +1070,7 @@
       "D2": 55,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Officer",
@@ -1097,7 +1097,7 @@
       "D2": 65,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Special Operations",
@@ -1124,7 +1124,7 @@
       "D2": 55,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Covert Operative",
@@ -1151,7 +1151,7 @@
       "D2": 60,
       "D3": 60
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Assassin",
@@ -1178,7 +1178,7 @@
       "D2": 55,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Scout",
@@ -1205,7 +1205,7 @@
       "D2": 40,
       "D3": 25
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Security",
@@ -1232,7 +1232,7 @@
       "D2": 45,
       "D3": 30
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Security",
@@ -1259,7 +1259,7 @@
       "D2": 50,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Special Operations",
@@ -1286,7 +1286,7 @@
       "D2": 50,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Officer",
@@ -1313,7 +1313,7 @@
       "D2": 60,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Security",
@@ -1340,7 +1340,7 @@
       "D2": 45,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Officer",
@@ -1367,7 +1367,7 @@
       "D2": 55,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Special Operations",
@@ -1396,7 +1396,7 @@
       "D2": 80,
       "D3": 25
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Engineer",
@@ -1423,7 +1423,7 @@
       "D2": 60,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Support",
@@ -1450,7 +1450,7 @@
       "D2": 55,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Leader",
@@ -1477,7 +1477,7 @@
       "D2": 50,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Leader",
@@ -1504,7 +1504,7 @@
       "D2": 55,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Officer",
@@ -1531,7 +1531,7 @@
       "D2": 60,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Security",
@@ -1558,7 +1558,7 @@
       "D2": 55,
       "D3": 30
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Security",
@@ -1585,7 +1585,7 @@
       "D2": 70,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Special Operations",
@@ -1612,7 +1612,7 @@
       "D2": 90,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Scientist",
@@ -1639,7 +1639,7 @@
       "D2": 90,
       "D3": 30
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Engineer",
@@ -1666,7 +1666,7 @@
       "D2": 75,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Intelligence",
@@ -1693,7 +1693,7 @@
       "D2": 50,
       "D3": 30
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Security",
@@ -1720,7 +1720,7 @@
       "D2": 55,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Officer",
@@ -1747,7 +1747,7 @@
       "D2": 80,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Aircrew",
@@ -1774,7 +1774,7 @@
       "D2": 70,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Special Operations",
@@ -1801,7 +1801,7 @@
       "D2": 85,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Leader",
       "Political Authority",
@@ -1828,7 +1828,7 @@
       "D2": 95,
       "D3": 30
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Scientist",
       "Engineer",
@@ -1855,7 +1855,7 @@
       "D2": 65,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Intelligence",
       "Security",
@@ -1882,7 +1882,7 @@
       "D2": 85,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Scientist",
       "Medical",
@@ -1909,7 +1909,7 @@
       "D2": 90,
       "D3": 30
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Scientist",
       "Engineer",
@@ -1936,7 +1936,7 @@
       "D2": 70,
       "D3": 30
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Support",
       "Engineer",
@@ -1963,7 +1963,7 @@
       "D2": 80,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Special Operations",
@@ -1990,7 +1990,7 @@
       "D2": 45,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Intelligence",
       "Covert Operative",
@@ -2017,7 +2017,7 @@
       "D2": 50,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Leader",
@@ -2044,7 +2044,7 @@
       "D2": 45,
       "D3": 60
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Officer",
@@ -2071,7 +2071,7 @@
       "D2": 35,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Security",
@@ -2098,7 +2098,7 @@
       "D2": 60,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Intelligence",
@@ -2125,7 +2125,7 @@
       "D2": 65,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Logistics",
@@ -2152,7 +2152,7 @@
       "D2": 70,
       "D3": 25
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Heavy Weapons",
@@ -2179,7 +2179,7 @@
       "D2": 70,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Leader",
       "Scientist",
@@ -2206,7 +2206,7 @@
       "D2": 50,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Support",
       "Logistics",
@@ -2233,7 +2233,7 @@
       "D2": 60,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Scientist",
       "Intelligence",
@@ -2260,7 +2260,7 @@
       "D2": 70,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Scientist",
       "Intelligence",
@@ -2287,7 +2287,7 @@
       "D2": 85,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Medical",
       "Scientist",
@@ -2314,7 +2314,7 @@
       "D2": 75,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Medical",
       "Civilian",
@@ -2341,7 +2341,7 @@
       "D2": 50,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Civilian",
       "Intelligence",
@@ -2368,7 +2368,7 @@
       "D2": 45,
       "D3": 30
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -2397,7 +2397,7 @@
       "D2": 35,
       "D3": 25
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Support",
       "Civilian",
@@ -2424,7 +2424,7 @@
       "D2": 45,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -2453,7 +2453,7 @@
       "D2": 55,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Leader",
       "Civilian",
@@ -2480,7 +2480,7 @@
       "D2": 55,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Leader",
       "Civilian",
@@ -2507,7 +2507,7 @@
       "D2": 50,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Leader",
       "Civilian",
@@ -2534,7 +2534,7 @@
       "D2": 45,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Religious",
@@ -2563,7 +2563,7 @@
       "D2": 45,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Special Operations",
@@ -2592,7 +2592,7 @@
       "D2": 55,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Special Operations",
@@ -2621,7 +2621,7 @@
       "D2": 75,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Special Operations",
@@ -2650,7 +2650,7 @@
       "D2": 40,
       "D3": 30
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Special Operations",
@@ -2679,7 +2679,7 @@
       "D2": 40,
       "D3": 30
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Special Operations",
@@ -2708,7 +2708,7 @@
       "D2": 65,
       "D3": 85
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Religious",
@@ -2737,7 +2737,7 @@
       "D2": 60,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Religious",
@@ -2766,7 +2766,7 @@
       "D2": 55,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Religious",
       "Intelligence",
@@ -2793,7 +2793,7 @@
       "D2": 55,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Religious",
@@ -2822,7 +2822,7 @@
       "D2": 50,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Religious",
@@ -2851,7 +2851,7 @@
       "D2": 55,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Religious",
       "Leader",
@@ -2878,7 +2878,7 @@
       "D2": 45,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -2907,7 +2907,7 @@
       "D2": 45,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Religious",
       "Intelligence",
@@ -2934,7 +2934,7 @@
       "D2": 50,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -2963,7 +2963,7 @@
       "D2": 55,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -2992,7 +2992,7 @@
       "D2": 55,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -3021,7 +3021,7 @@
       "D2": 50,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -3050,7 +3050,7 @@
       "D2": 40,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -3079,7 +3079,7 @@
       "D2": 45,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Religious",
       "Support",
@@ -3106,7 +3106,7 @@
       "D2": 40,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -3135,7 +3135,7 @@
       "D2": 40,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Religious",
@@ -3164,7 +3164,7 @@
       "D2": 30,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -3193,7 +3193,7 @@
       "D2": 50,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Religious",
       "Security",
@@ -3220,7 +3220,7 @@
       "D2": 45,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -3249,7 +3249,7 @@
       "D2": 55,
       "D3": 60
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Religious",
@@ -3278,7 +3278,7 @@
       "D2": 65,
       "D3": 85
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Leader",
       "Civilian",
@@ -3305,7 +3305,7 @@
       "D2": 80,
       "D3": 60
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -3334,7 +3334,7 @@
       "D2": 70,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -3363,7 +3363,7 @@
       "D2": 55,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -3392,7 +3392,7 @@
       "D2": 40,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -3421,7 +3421,7 @@
       "D2": 45,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -3450,7 +3450,7 @@
       "D2": 40,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Settler",
       "Civilian",
@@ -3477,7 +3477,7 @@
       "D2": 35,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -3506,7 +3506,7 @@
       "D2": 45,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Agricultural",
       "Settler",
@@ -3533,7 +3533,7 @@
       "D2": 40,
       "D3": 35
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Agricultural",
       "Support",
@@ -3560,7 +3560,7 @@
       "D2": 50,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Scout",
       "Survival",
@@ -3587,7 +3587,7 @@
       "D2": 45,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Scavenger",
       "Survival",
@@ -3614,7 +3614,7 @@
       "D2": 45,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Merchant",
       "Logistics",
@@ -3641,7 +3641,7 @@
       "D2": 50,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Merchant",
       "Logistics",
@@ -3668,7 +3668,7 @@
       "D2": 45,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Merchant",
       "Leader",
@@ -3695,7 +3695,7 @@
       "D2": 55,
       "D3": 60
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Mercenary",
       "Security",
@@ -3722,7 +3722,7 @@
       "D2": 50,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "civilian"
     ],
@@ -3747,7 +3747,7 @@
       "D2": 55,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Leader",
       "Cultural",
@@ -3774,7 +3774,7 @@
       "D2": 60,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Medical",
       "Civilian",
@@ -3801,7 +3801,7 @@
       "D2": 70,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Engineer",
       "Support",
@@ -3828,7 +3828,7 @@
       "D2": 35,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Support",
       "Cultural",
@@ -3855,7 +3855,7 @@
       "D2": 40,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Merchant",
       "Cultural",
@@ -3882,7 +3882,7 @@
       "D2": 35,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Merchant",
       "Cultural",
@@ -3909,7 +3909,7 @@
       "D2": 40,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Merchant",
       "Cultural",
@@ -3936,7 +3936,7 @@
       "D2": 30,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Performer",
       "Cultural",
@@ -3963,7 +3963,7 @@
       "D2": 35,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Cultural",
       "Performer",
@@ -3990,7 +3990,7 @@
       "D2": 30,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Performer",
       "Cultural",
@@ -4017,7 +4017,7 @@
       "D2": 45,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Support",
       "Cultural",
@@ -4044,7 +4044,7 @@
       "D2": 35,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -4073,7 +4073,7 @@
       "D2": 45,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Law Enforcer",
       "Cultural",
@@ -4100,7 +4100,7 @@
       "D2": 25,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Performer",
       "Cultural",
@@ -4127,7 +4127,7 @@
       "D2": 25,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Performer",
       "Cultural",
@@ -4154,7 +4154,7 @@
       "D2": 60,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Leader",
@@ -4182,7 +4182,7 @@
       "D2": 55,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -4211,7 +4211,7 @@
       "D2": 55,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Special Operations",
@@ -4240,7 +4240,7 @@
       "D2": 70,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Officer",
@@ -4269,7 +4269,7 @@
       "D2": 75,
       "D3": 60
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -4298,7 +4298,7 @@
       "D2": 65,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -4327,7 +4327,7 @@
       "D2": 60,
       "D3": 60
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -4356,7 +4356,7 @@
       "D2": 65,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Special Operations",
@@ -4385,7 +4385,7 @@
       "D2": 60,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Leader",
@@ -4413,7 +4413,7 @@
       "D2": 45,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Special Operations",
@@ -4442,7 +4442,7 @@
       "D2": 55,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Special Operations",
@@ -4471,7 +4471,7 @@
       "D2": 70,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Special Operations",
@@ -4500,7 +4500,7 @@
       "D2": 60,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Leader",
       "Settler",
@@ -4527,7 +4527,7 @@
       "D2": 50,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Representative",
       "Leader",
@@ -4554,7 +4554,7 @@
       "D2": 40,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Settler",
       "Civilian",
@@ -4581,7 +4581,7 @@
       "D2": 45,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Settler",
       "Civilian",
@@ -4608,7 +4608,7 @@
       "D2": 40,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Settler",
       "Trainee",
@@ -4635,7 +4635,7 @@
       "D2": 60,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Engineer",
       "Settler",
@@ -4662,7 +4662,7 @@
       "D2": 65,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Engineer",
       "Settler",
@@ -4689,7 +4689,7 @@
       "D2": 75,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Engineer",
       "Settler",
@@ -4716,7 +4716,7 @@
       "D2": 75,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Engineer",
       "Settler",
@@ -4743,7 +4743,7 @@
       "D2": 80,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Engineer",
       "Settler",
@@ -4770,7 +4770,7 @@
       "D2": 50,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Settler",
@@ -4797,7 +4797,7 @@
       "D2": 45,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Settler",
@@ -4824,7 +4824,7 @@
       "D2": 45,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Survival",
       "Settler",
@@ -4851,7 +4851,7 @@
       "D2": 45,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Scout",
       "Settler",
@@ -4878,7 +4878,7 @@
       "D2": 65,
       "D3": 85
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Leader",
       "Civilian",
@@ -4905,7 +4905,7 @@
       "D2": 60,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -4934,7 +4934,7 @@
       "D2": 55,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -4963,7 +4963,7 @@
       "D2": 45,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -4992,7 +4992,7 @@
       "D2": 40,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -5021,7 +5021,7 @@
       "D2": 35,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -5050,7 +5050,7 @@
       "D2": 75,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -5079,7 +5079,7 @@
       "D2": 65,
       "D3": 85
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Leader",
       "Political Authority",
@@ -5106,7 +5106,7 @@
       "D2": 60,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Leader",
       "Emergency Services",
@@ -5133,7 +5133,7 @@
       "D2": 35,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Civilian",
       "Support",
@@ -5160,7 +5160,7 @@
       "D2": 40,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Civilian",
       "Support",
@@ -5187,7 +5187,7 @@
       "D2": 50,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Emergency Services",
       "Support",
@@ -5214,7 +5214,7 @@
       "D2": 55,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Law Enforcer",
       "Security",
@@ -5241,7 +5241,7 @@
       "D2": 55,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Law Enforcer",
       "Intelligence",
@@ -5268,7 +5268,7 @@
       "D2": 60,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Emergency Services",
       "Security",
@@ -5295,7 +5295,7 @@
       "D2": 60,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Medical",
       "Emergency Services",
@@ -5322,7 +5322,7 @@
       "D2": 75,
       "D3": 85
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Medical",
       "Leader",
@@ -5349,7 +5349,7 @@
       "D2": 55,
       "D3": 60
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Medical",
       "Support",
@@ -5376,7 +5376,7 @@
       "D2": 60,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Medical",
       "Scientist",
@@ -5403,7 +5403,7 @@
       "D2": 80,
       "D3": 85
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Engineer",
       "Leader",
@@ -5430,7 +5430,7 @@
       "D2": 70,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Support",
@@ -5457,7 +5457,7 @@
       "D2": 75,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Engineer",
       "Support",
@@ -5484,7 +5484,7 @@
       "D2": 80,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -5513,7 +5513,7 @@
       "D2": 75,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Engineer",
       "Support",
@@ -5540,7 +5540,7 @@
       "D2": 50,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Support",
       "Civilian",
@@ -5567,7 +5567,7 @@
       "D2": 60,
       "D3": 60
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Support",
@@ -5594,7 +5594,7 @@
       "D2": 50,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Logistics",
@@ -5621,7 +5621,7 @@
       "D2": 50,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Courier",
       "Logistics",
@@ -5648,7 +5648,7 @@
       "D2": 55,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Scout",
       "Support",
@@ -5675,7 +5675,7 @@
       "D2": 65,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Military",
       "Trainer",
@@ -5702,7 +5702,7 @@
       "D2": 70,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Trainer",
       "Emergency Services",
@@ -5729,7 +5729,7 @@
       "D2": 60,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Trainer",
       "Support",
@@ -5756,7 +5756,7 @@
       "D2": 55,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Emergency Services",
@@ -5783,7 +5783,7 @@
       "D2": 60,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Medical",
       "Emergency Services",
@@ -5810,7 +5810,7 @@
       "D2": 50,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Scout",
       "Emergency Services",
@@ -5837,7 +5837,7 @@
       "D2": 75,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Engineer",
       "Logistics",
@@ -5864,7 +5864,7 @@
       "D2": 70,
       "D3": 75
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Scientist",
       "Medical",
@@ -5891,7 +5891,7 @@
       "D2": 60,
       "D3": 85
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -5920,7 +5920,7 @@
       "D2": 70,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -5949,7 +5949,7 @@
       "D2": 55,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -5978,7 +5978,7 @@
       "D2": 45,
       "D3": 60
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -6007,7 +6007,7 @@
       "D2": 50,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -6036,7 +6036,7 @@
       "D2": 50,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Security",
       "Special Operations",
@@ -6065,7 +6065,7 @@
       "D2": 45,
       "D3": 40
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Engineer",
@@ -6094,7 +6094,7 @@
       "D2": 35,
       "D3": 60
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -6123,7 +6123,7 @@
       "D2": 55,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -6152,7 +6152,7 @@
       "D2": 65,
       "D3": 80
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -6181,7 +6181,7 @@
       "D2": 55,
       "D3": 65
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -6210,7 +6210,7 @@
       "D2": 60,
       "D3": 50
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -6239,7 +6239,7 @@
       "D2": 50,
       "D3": 55
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Logistics",
       "Covert Operative",
@@ -6268,7 +6268,7 @@
       "D2": 55,
       "D3": 70
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
@@ -6297,7 +6297,7 @@
       "D2": 35,
       "D3": 45
     },
-    "variance": 0,
+    "variance": 8,
     "tags": [
       "Officer",
       "Covert Operative",
